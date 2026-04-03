@@ -1,0 +1,45 @@
+{
+  "version": "0.2.1",
+  "publishedAt": "2026-03-19T10:00:00.000Z",
+  "notes": [
+    "Adds in-app update checks and one-click installer opening.",
+    "Improves command tree persistence for saved presets."
+  ],
+  "downloads": [
+    {
+      "platform": "darwin",
+      "arch": "arm64",
+      "url": "http://localhost:9090/TerminallySKILL-0.2.1-arm64.dmg",
+      "label": "macOS arm64 DMG",
+      "fileName": "TerminallySKILL-0.2.1-arm64.dmg"
+    },
+    {
+      "platform": "linux",
+      "arch": "x64",
+      "url": "http://localhost:9090/TerminallySKILL-0.2.1-x64.AppImage",
+      "label": "Linux x64 AppImage",
+      "fileName": "TerminallySKILL-0.2.1-x64.AppImage"
+    },
+    {
+      "platform": "linux",
+      "arch": "arm64",
+      "url": "http://localhost:9090/TerminallySKILL-0.2.1-arm64.AppImage",
+      "label": "Linux arm64 AppImage",
+      "fileName": "TerminallySKILL-0.2.1-arm64.AppImage"
+    },
+    {
+      "platform": "win32",
+      "arch": "x64",
+      "url": "http://localhost:9090/TerminallySKILL-Setup-0.2.1.exe",
+      "label": "Windows x64 Installer",
+      "fileName": "TerminallySKILL-Setup-0.2.1.exe"
+    },
+    {
+      "platform": "win32",
+      "arch": "arm64",
+      "url": "http://localhost:9090/TerminallySKILL-Setup-0.2.1.exe",
+      "label": "Windows arm64 Installer",
+      "fileName": "TerminallySKILL-Setup-0.2.1.exe"
+    }
+  ]
+}

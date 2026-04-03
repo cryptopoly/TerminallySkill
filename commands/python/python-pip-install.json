@@ -1,0 +1,80 @@
+{
+  "id": "python-pip-install",
+  "name": "python -m pip install",
+  "executable": "python",
+  "subcommands": ["-m", "pip", "install"],
+  "description": "Install Python packages with pip using the active interpreter or virtual environment",
+  "category": "python",
+  "tags": ["python", "pip", "dependencies", "packages"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://pip.pypa.io/en/stable/cli/pip_install/",
+  "options": [
+    {
+      "id": "requirements",
+      "short": "-r",
+      "label": "Requirements file",
+      "description": "Install packages listed in a requirements file",
+      "type": "file-path"
+    },
+    {
+      "id": "editable",
+      "short": "-e",
+      "label": "Editable install",
+      "description": "Install a local project in editable mode",
+      "type": "boolean"
+    },
+    {
+      "id": "upgrade",
+      "long": "--upgrade",
+      "label": "Upgrade",
+      "description": "Upgrade packages to the newest available version",
+      "type": "boolean"
+    },
+    {
+      "id": "pre",
+      "long": "--pre",
+      "label": "Pre-release",
+      "description": "Include pre-release and development versions",
+      "type": "boolean"
+    },
+    {
+      "id": "index-url",
+      "long": "--index-url",
+      "label": "Index URL",
+      "description": "Use a different package index URL",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "packages",
+      "label": "Packages",
+      "description": "Package names or local paths to install",
+      "type": "string",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Install from requirements.txt",
+      "values": {
+        "requirements": "requirements.txt"
+      }
+    },
+    {
+      "label": "Install a project in editable mode",
+      "values": {
+        "editable": true,
+        "packages": ["."]
+      }
+    },
+    {
+      "label": "Upgrade pytest and requests",
+      "values": {
+        "upgrade": true,
+        "packages": ["pytest", "requests"]
+      }
+    }
+  ]
+}

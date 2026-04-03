@@ -1,0 +1,160 @@
+{
+  "id": "docker-run",
+  "name": "docker run",
+  "executable": "docker",
+  "subcommands": ["run"],
+  "description": "Create and start a new container from a Docker image with specified configuration",
+  "category": "docker",
+  "tags": ["container", "virtualization", "deploy", "image"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.docker.com/reference/cli/docker/container/run/",
+  "options": [
+    {
+      "id": "detach",
+      "short": "-d",
+      "label": "Detached mode",
+      "description": "Run the container in the background and print the container ID",
+      "type": "boolean"
+    },
+    {
+      "id": "interactive",
+      "short": "-it",
+      "label": "Interactive TTY",
+      "description": "Keep STDIN open and allocate a pseudo-TTY for interactive use",
+      "type": "boolean"
+    },
+    {
+      "id": "rm",
+      "long": "--rm",
+      "label": "Auto-remove",
+      "description": "Automatically remove the container when it exits",
+      "type": "boolean"
+    },
+    {
+      "id": "name",
+      "long": "--name",
+      "label": "Container name",
+      "description": "Assign a memorable name to the container",
+      "type": "string"
+    },
+    {
+      "id": "port",
+      "short": "-p",
+      "label": "Port mapping",
+      "description": "Map a host port to a container port (e.g., 8080:80)",
+      "type": "string",
+      "repeatable": true
+    },
+    {
+      "id": "env",
+      "short": "-e",
+      "label": "Environment variable",
+      "description": "Set an environment variable in the container (e.g., NODE_ENV=production)",
+      "type": "string",
+      "repeatable": true
+    },
+    {
+      "id": "volume",
+      "short": "-v",
+      "label": "Volume mount",
+      "description": "Mount a host directory or volume into the container (e.g., ./data:/app/data)",
+      "type": "string",
+      "repeatable": true
+    },
+    {
+      "id": "workdir",
+      "short": "-w",
+      "label": "Working directory",
+      "description": "Set the working directory inside the container",
+      "type": "string"
+    },
+    {
+      "id": "network",
+      "long": "--network",
+      "label": "Network",
+      "description": "Connect the container to a specific Docker network",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "image",
+      "label": "Image",
+      "description": "Docker image to create the container from (e.g., nginx:latest)",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "command",
+      "label": "Command",
+      "description": "Command to run inside the container, overriding the default",
+      "type": "string",
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run an interactive Ubuntu container that auto-removes",
+      "values": {
+        "image": "ubuntu:latest",
+        "command": "/bin/bash",
+        "interactive": true,
+        "rm": true
+      }
+    },
+    {
+      "label": "Run nginx in the background with port mapping",
+      "values": {
+        "image": "nginx:alpine",
+        "detach": true,
+        "name": "web-server",
+        "port": ["8080:80"],
+        "volume": ["./html:/usr/share/nginx/html:ro"]
+      }
+    },
+    {
+      "label": "Run a Node.js app with environment variables",
+      "values": {
+        "image": "node:20",
+        "workdir": "/app",
+        "volume": [".:/app"],
+        "port": ["3000:3000"],
+        "env": ["NODE_ENV=development"],
+        "command": "npm start"
+      }
+    },
+    {
+      "label": "Run with port mapping and volume mounts",
+      "values": {
+        "image": "postgres:16",
+        "detach": true,
+        "name": "my-postgres",
+        "port": ["5432:5432"],
+        "volume": ["pgdata:/var/lib/postgresql/data"],
+        "env": ["POSTGRES_PASSWORD=secret", "POSTGRES_DB=myapp"]
+      }
+    },
+    {
+      "label": "Run detached with environment variables and network",
+      "values": {
+        "image": "redis:alpine",
+        "detach": true,
+        "name": "cache",
+        "network": "app-network",
+        "port": ["6379:6379"]
+      }
+    },
+    {
+      "label": "Run with custom network and named container",
+      "values": {
+        "image": "mysql:8",
+        "detach": true,
+        "name": "db",
+        "network": "backend",
+        "env": ["MYSQL_ROOT_PASSWORD=rootpass", "MYSQL_DATABASE=app"],
+        "volume": ["mysql-data:/var/lib/mysql"]
+      }
+    }
+  ]
+}

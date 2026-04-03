@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="speed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect width="1024" height="1024" rx="228" fill="url(#bg)"/>
+
+  <!-- Subtle inner shadow / depth -->
+  <rect x="40" y="40" width="944" height="944" rx="196" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- Speed lines — trailing from the prompt -->
+  <line x1="130" y1="390" x2="360" y2="390" stroke="#ffffff" stroke-opacity="0.7" stroke-width="42" stroke-linecap="round"/>
+  <line x1="90" y1="512" x2="340" y2="512" stroke="#ffffff" stroke-opacity="0.8" stroke-width="48" stroke-linecap="round"/>
+  <line x1="130" y1="634" x2="360" y2="634" stroke="#ffffff" stroke-opacity="0.7" stroke-width="42" stroke-linecap="round"/>
+
+  <!-- Terminal prompt > (chevron) -->
+  <path d="M410 340 L650 512 L410 684" stroke="#ffffff" stroke-width="82" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Cursor underscore _ -->
+  <line x1="710" y1="694" x2="890" y2="694" stroke="#ffffff" stroke-width="72" stroke-linecap="round" stroke-opacity="0.85"/>
+</svg>

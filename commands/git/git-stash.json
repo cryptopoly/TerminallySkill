@@ -1,0 +1,110 @@
+{
+  "id": "git-stash",
+  "name": "git stash",
+  "executable": "git",
+  "subcommands": ["stash"],
+  "description": "Temporarily save uncommitted changes to a stack so you can work on something else and reapply them later",
+  "category": "git",
+  "tags": ["version-control", "save", "temporary", "workspace"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://git-scm.com/docs/git-stash",
+  "options": [
+    {
+      "id": "message",
+      "short": "-m",
+      "label": "Message",
+      "description": "Add a descriptive message to the stash entry",
+      "type": "string",
+      "showWhen": {
+        "optionId": "action",
+        "operator": "equals",
+        "value": "push"
+      }
+    },
+    {
+      "id": "include-untracked",
+      "short": "-u",
+      "label": "Include untracked",
+      "description": "Also stash untracked files that are not yet being tracked by git",
+      "type": "boolean",
+      "showWhen": {
+        "optionId": "action",
+        "operator": "equals",
+        "value": "push"
+      }
+    },
+    {
+      "id": "keep-index",
+      "long": "--keep-index",
+      "label": "Keep index",
+      "description": "Keep changes that have already been staged in the index",
+      "type": "boolean",
+      "showWhen": {
+        "optionId": "action",
+        "operator": "equals",
+        "value": "push"
+      }
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "action",
+      "label": "Action",
+      "description": "The stash operation to perform",
+      "type": "enum",
+      "position": 0,
+      "choices": [
+        { "value": "push", "label": "Push", "description": "Save your local modifications to a new stash entry" },
+        { "value": "pop", "label": "Pop", "description": "Apply the most recent stash and remove it from the stack" },
+        { "value": "apply", "label": "Apply", "description": "Apply the most recent stash but keep it on the stack" },
+        { "value": "list", "label": "List", "description": "List all stash entries" },
+        { "value": "drop", "label": "Drop", "description": "Remove a single stash entry from the stack" },
+        { "value": "clear", "label": "Clear", "description": "Remove all stash entries" }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "label": "Stash changes with a message including untracked files",
+      "values": {
+        "action": "push",
+        "message": "WIP: new feature layout",
+        "include-untracked": true
+      }
+    },
+    {
+      "label": "Apply the most recent stash and remove it",
+      "values": {
+        "action": "pop"
+      }
+    },
+    {
+      "label": "List all stashed changes",
+      "values": {
+        "action": "list"
+      }
+    },
+    {
+      "label": "Stash including untracked files",
+      "values": {
+        "action": "push",
+        "include-untracked": true,
+        "message": "WIP: saving work before branch switch"
+      }
+    },
+    {
+      "label": "Apply last stash without removing it",
+      "values": {
+        "action": "apply"
+      }
+    },
+    {
+      "label": "Stash only unstaged changes (keep staged work)",
+      "values": {
+        "action": "push",
+        "keep-index": true,
+        "message": "stashing unstaged changes for testing"
+      }
+    }
+  ]
+}

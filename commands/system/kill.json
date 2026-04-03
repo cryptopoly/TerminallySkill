@@ -1,0 +1,75 @@
+{
+  "id": "kill",
+  "name": "kill",
+  "executable": "kill",
+  "description": "Send a signal to a process, typically used to terminate or control running processes",
+  "category": "system",
+  "tags": ["process", "signal", "terminate", "stop"],
+  "dangerLevel": "caution",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/kill.1.html",
+  "options": [
+    {
+      "id": "signal",
+      "short": "-s",
+      "label": "Signal",
+      "description": "The signal to send to the process",
+      "type": "enum",
+      "choices": [
+        { "value": "SIGTERM", "label": "SIGTERM (15)", "description": "Gracefully terminate the process, allowing cleanup" },
+        { "value": "SIGKILL", "label": "SIGKILL (9)", "description": "Forcefully kill the process immediately, cannot be caught or ignored" },
+        { "value": "SIGHUP", "label": "SIGHUP (1)", "description": "Hangup signal, often used to reload configuration" },
+        { "value": "SIGINT", "label": "SIGINT (2)", "description": "Interrupt signal, same as pressing Ctrl+C" },
+        { "value": "SIGSTOP", "label": "SIGSTOP (19)", "description": "Pause the process, cannot be caught or ignored" },
+        { "value": "SIGCONT", "label": "SIGCONT (18)", "description": "Resume a stopped process" }
+      ]
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "pid",
+      "label": "Process ID",
+      "description": "The process ID (PID) of the process to signal",
+      "type": "string",
+      "required": true,
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Gracefully terminate a process",
+      "values": {
+        "signal": "SIGTERM",
+        "pid": ["12345"]
+      }
+    },
+    {
+      "label": "Force kill an unresponsive process",
+      "values": {
+        "signal": "SIGKILL",
+        "pid": ["12345"]
+      }
+    },
+    {
+      "label": "Send reload signal to a daemon",
+      "values": {
+        "signal": "SIGHUP",
+        "pid": ["6789"]
+      }
+    },
+    {
+      "label": "Interrupt a process (like Ctrl+C)",
+      "values": {
+        "signal": "SIGINT",
+        "pid": ["5555"]
+      }
+    },
+    {
+      "label": "Force kill multiple stuck processes",
+      "values": {
+        "signal": "SIGKILL",
+        "pid": ["1234", "5678", "9012"]
+      }
+    }
+  ]
+}

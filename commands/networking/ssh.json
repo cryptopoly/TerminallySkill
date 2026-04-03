@@ -1,0 +1,124 @@
+{
+  "id": "ssh",
+  "name": "ssh",
+  "executable": "ssh",
+  "description": "Securely connect to a remote server over an encrypted SSH connection",
+  "category": "networking",
+  "tags": ["remote", "secure", "shell", "server", "connection"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/ssh.1.html",
+  "options": [
+    {
+      "id": "port",
+      "short": "-p",
+      "label": "Port",
+      "description": "Port number to connect to on the remote host",
+      "type": "number",
+      "validation": {
+        "min": 1,
+        "max": 65535,
+        "message": "Port must be between 1 and 65535"
+      }
+    },
+    {
+      "id": "identity-file",
+      "short": "-i",
+      "label": "Identity file",
+      "description": "Path to the private key file for authentication",
+      "type": "file-path"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Enable verbose mode for debugging connection issues",
+      "type": "boolean"
+    },
+    {
+      "id": "forward-agent",
+      "short": "-A",
+      "label": "Forward agent",
+      "description": "Enable forwarding of the SSH authentication agent connection",
+      "type": "boolean"
+    },
+    {
+      "id": "local-forward",
+      "short": "-L",
+      "label": "Local port forward",
+      "description": "Forward a local port to a remote address (e.g., 8080:localhost:80)",
+      "type": "string"
+    },
+    {
+      "id": "remote-forward",
+      "short": "-R",
+      "label": "Remote port forward",
+      "description": "Forward a remote port to a local address (e.g., 9090:localhost:3000)",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "destination",
+      "label": "Destination",
+      "description": "Remote host to connect to, optionally with user (e.g., user@hostname)",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "command",
+      "label": "Command",
+      "description": "Command to execute on the remote host instead of starting an interactive shell",
+      "type": "string",
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Connect to a remote server with a specific key",
+      "values": {
+        "destination": "user@example.com",
+        "identity-file": "~/.ssh/id_ed25519",
+        "port": 22
+      }
+    },
+    {
+      "label": "Set up a local port forward tunnel",
+      "values": {
+        "destination": "user@bastion.example.com",
+        "local-forward": "8080:internal-server:80"
+      }
+    },
+    {
+      "label": "Run a command on a remote server",
+      "values": {
+        "destination": "deploy@production.example.com",
+        "command": "docker ps",
+        "forward-agent": true
+      }
+    },
+    {
+      "label": "SSH with a custom port",
+      "values": {
+        "destination": "admin@server.example.com",
+        "port": 2222
+      }
+    },
+    {
+      "label": "SSH with key file and agent forwarding",
+      "values": {
+        "destination": "ubuntu@ec2-instance.amazonaws.com",
+        "identity-file": "~/.ssh/aws-key.pem",
+        "forward-agent": true
+      }
+    },
+    {
+      "label": "SSH with local port forwarding for database access",
+      "values": {
+        "destination": "user@jump-host.example.com",
+        "local-forward": "5432:db-server:5432",
+        "identity-file": "~/.ssh/id_rsa"
+      }
+    }
+  ]
+}

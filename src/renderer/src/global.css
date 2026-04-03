@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Void (default) — Dark Carbon + Electric Teal ── */
+:root {
+  --surface:        #0e0f11;
+  --surface-light:  #16181d;
+  --surface-lighter:#1e2028;
+  --surface-border: #2c2e38;
+  --accent:         #06b6d4;
+  --accent-light:   #22d3ee;
+  --accent-dark:    #0891b2;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --logo-start: #06b6d4;
+  --logo-end:   #0e7490;
+}
+
+/* ── Ember — Warm Walnut + Amber ── */
+[data-theme="ember"] {
+  --surface:        #342922;
+  --surface-light:  #41342c;
+  --surface-lighter:#514239;
+  --surface-border: #6e5a4d;
+  --accent:         #d97706;
+  --accent-light:   #f59e0b;
+  --accent-dark:    #b45309;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --logo-start: #f59e0b;
+  --logo-end:   #d97706;
+}
+
+/* ── Dusk — Mid Blue-Gray + Lavender ── */
+[data-theme="dusk"] {
+  --surface:        #252838;
+  --surface-light:  #2f3349;
+  --surface-lighter:#393e5a;
+  --surface-border: #50567a;
+  --accent:         #818cf8;
+  --accent-light:   #a5b4fc;
+  --accent-dark:    #6366f1;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --logo-start: #818cf8;
+  --logo-end:   #6366f1;
+}
+
+/* ── Forest — Deep Pine + Fresh Green ── */
+[data-theme="forest"] {
+  --surface:        #111713;
+  --surface-light:  #17201b;
+  --surface-lighter:#223026;
+  --surface-border: #38503f;
+  --accent:         #22c55e;
+  --accent-light:   #4ade80;
+  --accent-dark:    #16a34a;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --logo-start: #4ade80;
+  --logo-end:   #15803d;
+}
+
+/* ── Chalk — Warm Cream + Copper ── */
+[data-theme="chalk"] {
+  --surface:        #faf9f7;
+  --surface-light:  #f5f3ef;
+  --surface-lighter:#ede9e2;
+  --surface-border: #ddd8cf;
+  --accent:         #c2410c;
+  --accent-light:   #ea580c;
+  --accent-dark:    #9a3412;
+  /* Flip grays: low numbers = dark text, high numbers = subtle */
+  --gray-200: #1c1917;
+  --gray-300: #292524;
+  --gray-400: #57534e;
+  --gray-500: #78716c;
+  --gray-600: #a8a29e;
+  --gray-700: #d6d3d1;
+  --gray-800: #e7e5e4;
+  --logo-start: #c2410c;
+  --logo-end:   #9a3412;
+}
+
+/* ── Latte — Warm Tan + Espresso Brown ── */
+[data-theme="sand"] {
+  --surface:        #ede9e2;
+  --surface-light:  #e5e0d8;
+  --surface-lighter:#dbd5cb;
+  --surface-border: #c9c2b7;
+  --accent:         #7c5730;
+  --accent-light:   #a0714a;
+  --accent-dark:    #5c3f20;
+  --gray-200: #2c1e10;
+  --gray-300: #3d3228;
+  --gray-400: #5e5448;
+  --gray-500: #7a7068;
+  --gray-600: #a89e94;
+  --gray-700: #d6d0c8;
+  --gray-800: #e5e0d8;
+  --logo-start: #7c5730;
+  --logo-end:   #5c3f20;
+}
+
+/* ── Sage — Warm Gray-Green + Olive ── */
+[data-theme="stone"] {
+  --surface:        #dde0d8;
+  --surface-light:  #d3d7cd;
+  --surface-lighter:#c9cec2;
+  --surface-border: #b0b7a8;
+  --accent:         #4a6741;
+  --accent-light:   #5f8654;
+  --accent-dark:    #375030;
+  --gray-200: #1a2418;
+  --gray-300: #283024;
+  --gray-400: #4a5444;
+  --gray-500: #6a7464;
+  --gray-600: #8e988a;
+  --gray-700: #c2c8bc;
+  --gray-800: #d5dace;
+  --logo-start: #4a6741;
+  --logo-end:   #375030;
+}
+
+/* ── Mist — Soft Paper + Slate Teal ── */
+[data-theme="mist"] {
+  --surface:        #f3f6f8;
+  --surface-light:  #e9eef2;
+  --surface-lighter:#dde5eb;
+  --surface-border: #c5d0d9;
+  --accent:         #0f766e;
+  --accent-light:   #14b8a6;
+  --accent-dark:    #115e59;
+  --gray-200: #111827;
+  --gray-300: #1f2937;
+  --gray-400: #475569;
+  --gray-500: #64748b;
+  --gray-600: #94a3b8;
+  --gray-700: #cbd5e1;
+  --gray-800: #e2e8f0;
+  --logo-start: #14b8a6;
+  --logo-end:   #0f766e;
+}
+
+@layer base {
+  * {
+    @apply border-surface-border;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-lighter rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-border;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .tv-input {
+    @apply w-full rounded-lg border border-surface-border bg-surface-light px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent;
+  }
+
+  .tv-input-compact {
+    @apply w-full rounded-lg border border-surface-border bg-surface-light px-3 py-1.5 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent;
+  }
+
+  .tv-btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-surface-border bg-surface-light px-3 py-1.5 text-xs font-medium text-gray-300 transition-colors hover:border-gray-500 hover:text-gray-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tv-btn-accent {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-accent bg-accent px-3 py-1.5 text-xs font-medium text-white transition-colors hover:border-accent-light hover:bg-accent-light focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tv-btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-transparent px-2.5 py-1.5 text-xs font-medium text-gray-400 transition-colors hover:bg-surface-light hover:text-gray-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tv-btn-dashed {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-dashed border-surface-border bg-transparent px-3 py-2 text-sm font-medium text-gray-400 transition-colors hover:border-accent hover:bg-surface-light hover:text-accent-light disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tv-btn-icon {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-lg border border-transparent text-gray-500 transition-colors hover:bg-surface-light hover:text-accent-light focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 focus-visible:ring-offset-surface focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tv-btn-icon-sm {
+    @apply inline-flex h-6 w-6 items-center justify-center rounded-md border border-transparent text-gray-500 transition-colors hover:bg-surface-lighter hover:text-gray-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 focus-visible:ring-offset-surface focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tv-pill {
+    @apply inline-flex items-center gap-1 rounded-full border border-surface-border px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] text-gray-500;
+  }
+
+  .tv-section-label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-600;
+  }
+
+  .tv-list-card {
+    @apply rounded-xl border border-transparent bg-transparent transition-colors hover:border-surface-border hover:bg-surface-light;
+  }
+}
+
+/* ── Utility: hide scrollbar but keep scrollability ── */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/WebKit */
+}
+
+/* ── Syntax highlighting (highlight.js atom-one-dark) ── */
+/* The background on .hljs would override our surface colours — neutralise it */
+.hljs {
+  background: transparent !important;
+  color: inherit;
+}
+/* Keep the token colours from atom-one-dark but ensure they render inline */
+.hljs span {
+  font-family: inherit;
+  font-size: inherit;
+}

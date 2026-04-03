@@ -1,0 +1,54 @@
+{
+  "id": "poetry-install",
+  "name": "poetry install",
+  "executable": "poetry",
+  "subcommands": ["install"],
+  "description": "Install dependencies defined in pyproject.toml using Poetry",
+  "category": "python",
+  "tags": ["python", "poetry", "dependencies", "virtualenv"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://python-poetry.org/docs/cli/#install",
+  "options": [
+    {
+      "id": "with",
+      "long": "--with",
+      "label": "Dependency groups",
+      "description": "Install additional dependency groups",
+      "type": "string"
+    },
+    {
+      "id": "only",
+      "long": "--only",
+      "label": "Only groups",
+      "description": "Only install the specified dependency groups",
+      "type": "string"
+    },
+    {
+      "id": "no-root",
+      "long": "--no-root",
+      "label": "No root package",
+      "description": "Skip installing the current project package",
+      "type": "boolean"
+    },
+    {
+      "id": "sync",
+      "long": "--sync",
+      "label": "Sync environment",
+      "description": "Synchronize the environment exactly with the lockfile",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Install the locked environment",
+      "values": {}
+    },
+    {
+      "label": "Install the test group and sync the environment",
+      "values": {
+        "with": "test",
+        "sync": true
+      }
+    }
+  ]
+}

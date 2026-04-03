@@ -1,0 +1,116 @@
+{
+  "id": "git-branch",
+  "name": "git branch",
+  "executable": "git",
+  "subcommands": ["branch"],
+  "description": "List, create, rename, or delete branches in the repository",
+  "category": "git",
+  "tags": ["version-control", "branch", "workflow"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://git-scm.com/docs/git-branch",
+  "options": [
+    {
+      "id": "delete",
+      "short": "-d",
+      "label": "Delete",
+      "description": "Delete a fully merged branch",
+      "type": "boolean",
+      "dangerLevel": "caution"
+    },
+    {
+      "id": "delete-force",
+      "short": "-D",
+      "label": "Force delete",
+      "description": "Force delete a branch even if it has unmerged changes",
+      "type": "boolean",
+      "dangerLevel": "destructive"
+    },
+    {
+      "id": "list",
+      "short": "-l",
+      "label": "List",
+      "description": "List branches matching an optional pattern",
+      "type": "boolean"
+    },
+    {
+      "id": "all",
+      "short": "-a",
+      "label": "All",
+      "description": "List both local and remote-tracking branches",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Show the last commit hash and subject for each branch",
+      "type": "boolean"
+    },
+    {
+      "id": "move",
+      "short": "-m",
+      "label": "Move/Rename",
+      "description": "Rename the current branch or a specified branch",
+      "type": "boolean"
+    },
+    {
+      "id": "remote",
+      "short": "-r",
+      "label": "Remote",
+      "description": "List or act on remote-tracking branches",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "branchname",
+      "label": "Branch name",
+      "description": "Name of the branch to create, delete, or rename",
+      "type": "string",
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "List all branches with verbose info",
+      "values": {
+        "all": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Delete a merged branch",
+      "values": {
+        "delete": true,
+        "branchname": "feature/old-feature"
+      }
+    },
+    {
+      "label": "Create a new branch",
+      "values": {
+        "branchname": "feature/new-feature"
+      }
+    },
+    {
+      "label": "List all remote branches",
+      "values": {
+        "remote": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Rename the current branch",
+      "values": {
+        "move": true,
+        "branchname": "feature/renamed-branch"
+      }
+    },
+    {
+      "label": "Force delete an unmerged branch",
+      "values": {
+        "delete-force": true,
+        "branchname": "experiment/abandoned-idea"
+      }
+    }
+  ]
+}

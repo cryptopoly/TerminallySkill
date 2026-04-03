@@ -1,0 +1,132 @@
+{
+  "id": "find",
+  "name": "find",
+  "executable": "find",
+  "description": "Search for files and directories in a directory hierarchy based on various criteria",
+  "category": "filesystem",
+  "tags": ["search", "files", "locate", "directory"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/find.1.html",
+  "options": [
+    {
+      "id": "name",
+      "long": "-name",
+      "label": "Name pattern",
+      "description": "Search for files matching a filename pattern (supports wildcards like *.txt)",
+      "type": "string",
+      "separator": "space"
+    },
+    {
+      "id": "type",
+      "long": "-type",
+      "label": "File type",
+      "description": "Filter results by file type",
+      "type": "enum",
+      "separator": "space",
+      "choices": [
+        { "value": "f", "label": "File", "description": "Regular files" },
+        { "value": "d", "label": "Directory", "description": "Directories" },
+        { "value": "l", "label": "Symlink", "description": "Symbolic links" }
+      ]
+    },
+    {
+      "id": "maxdepth",
+      "long": "-maxdepth",
+      "label": "Maximum depth",
+      "description": "Descend at most this many levels of directories below the starting path",
+      "type": "number",
+      "separator": "space",
+      "validation": {
+        "min": 0,
+        "max": 99,
+        "message": "Max depth must be between 0 and 99"
+      }
+    },
+    {
+      "id": "size",
+      "long": "-size",
+      "label": "File size",
+      "description": "Filter by file size (e.g., +10M for files larger than 10MB, -1k for smaller than 1KB)",
+      "type": "string",
+      "separator": "space"
+    },
+    {
+      "id": "mtime",
+      "long": "-mtime",
+      "label": "Modification time (days)",
+      "description": "Filter by modification time in days (e.g., -7 for modified in last 7 days, +30 for older than 30 days)",
+      "type": "number",
+      "separator": "space"
+    },
+    {
+      "id": "exec",
+      "long": "-exec",
+      "label": "Execute command",
+      "description": "Execute a command on each matching file (use {} as placeholder and terminate with \\;)",
+      "type": "string",
+      "separator": "space"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "path",
+      "label": "Search path",
+      "description": "Starting directory for the search",
+      "type": "directory-path",
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Find all JavaScript files in current directory",
+      "values": {
+        "path": ".",
+        "name": "*.js",
+        "type": "f"
+      }
+    },
+    {
+      "label": "Find directories modified in the last 7 days",
+      "values": {
+        "path": "/home",
+        "type": "d",
+        "mtime": -7,
+        "maxdepth": 3
+      }
+    },
+    {
+      "label": "Find large files over 100MB",
+      "values": {
+        "path": "/",
+        "type": "f",
+        "size": "+100M"
+      }
+    },
+    {
+      "label": "Find files modified in the last 24 hours",
+      "values": {
+        "path": ".",
+        "type": "f",
+        "mtime": 0
+      }
+    },
+    {
+      "label": "Find by extension (TypeScript files)",
+      "values": {
+        "path": "./src",
+        "name": "*.ts",
+        "type": "f",
+        "maxdepth": 5
+      }
+    },
+    {
+      "label": "Find and delete temporary files",
+      "values": {
+        "path": ".",
+        "name": "*.tmp",
+        "type": "f",
+        "exec": "rm {} \\;"
+      }
+    }
+  ]
+}

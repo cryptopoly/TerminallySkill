@@ -1,0 +1,44 @@
+{
+  "id": "poetry-run",
+  "name": "poetry run",
+  "executable": "poetry",
+  "subcommands": ["run"],
+  "description": "Run a command inside Poetry's managed virtual environment",
+  "category": "python",
+  "tags": ["python", "poetry", "virtualenv", "run"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://python-poetry.org/docs/cli/#run",
+  "positionalArgs": [
+    {
+      "id": "command",
+      "label": "Command",
+      "description": "Command to run in the Poetry environment",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "args",
+      "label": "Arguments",
+      "description": "Additional arguments passed to the command",
+      "type": "string",
+      "variadic": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run pytest",
+      "values": {
+        "command": "pytest"
+      }
+    },
+    {
+      "label": "Run the Django dev server",
+      "values": {
+        "command": "python",
+        "args": ["manage.py", "runserver"]
+      }
+    }
+  ]
+}

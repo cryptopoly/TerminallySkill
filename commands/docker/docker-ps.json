@@ -1,0 +1,84 @@
+{
+  "id": "docker-ps",
+  "name": "docker ps",
+  "executable": "docker",
+  "subcommands": ["ps"],
+  "description": "List running Docker containers, optionally showing stopped containers as well",
+  "category": "docker",
+  "tags": ["container", "list", "status", "running"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.docker.com/reference/cli/docker/container/ls/",
+  "options": [
+    {
+      "id": "all",
+      "short": "-a",
+      "label": "Show all containers",
+      "description": "Show all containers, including stopped ones (default shows only running)",
+      "type": "boolean"
+    },
+    {
+      "id": "quiet",
+      "short": "-q",
+      "label": "Quiet",
+      "description": "Only display container IDs",
+      "type": "boolean"
+    },
+    {
+      "id": "filter",
+      "short": "-f",
+      "label": "Filter",
+      "description": "Filter output based on conditions (e.g., status=running, name=web)",
+      "type": "string",
+      "repeatable": true
+    },
+    {
+      "id": "format",
+      "long": "--format",
+      "label": "Format",
+      "description": "Pretty-print containers using a Go template string",
+      "type": "string"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Show all containers including stopped",
+      "values": {
+        "all": true
+      }
+    },
+    {
+      "label": "List only container IDs for running containers",
+      "values": {
+        "quiet": true
+      }
+    },
+    {
+      "label": "Filter containers by name",
+      "values": {
+        "filter": ["name=web-server"],
+        "all": true
+      }
+    },
+    {
+      "label": "Show only IDs of all containers",
+      "values": {
+        "all": true,
+        "quiet": true
+      }
+    },
+    {
+      "label": "Filter by exited status",
+      "values": {
+        "filter": ["status=exited"],
+        "all": true
+      }
+    },
+    {
+      "label": "Custom formatted output showing name and status",
+      "values": {
+        "format": "table {{.Names}}\t{{.Status}}\t{{.Ports}}",
+        "all": true
+      }
+    }
+  ]
+}

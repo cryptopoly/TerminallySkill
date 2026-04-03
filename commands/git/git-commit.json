@@ -1,0 +1,138 @@
+{
+  "id": "git-commit",
+  "name": "git commit",
+  "executable": "git",
+  "subcommands": ["commit"],
+  "description": "Record changes to the repository by creating a new commit with a message describing the changes",
+  "category": "git",
+  "tags": ["version-control", "save", "snapshot", "history"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://git-scm.com/docs/git-commit",
+  "options": [
+    {
+      "id": "message",
+      "short": "-m",
+      "label": "Message",
+      "description": "Commit message describing the changes",
+      "type": "string",
+      "required": true
+    },
+    {
+      "id": "all",
+      "short": "-a",
+      "label": "Stage all modified files",
+      "description": "Automatically stage all modified and deleted files before committing",
+      "type": "boolean"
+    },
+    {
+      "id": "amend",
+      "long": "--amend",
+      "label": "Amend last commit",
+      "description": "Replace the most recent commit with a new commit incorporating the staged changes",
+      "type": "boolean"
+    },
+    {
+      "id": "no-edit",
+      "long": "--no-edit",
+      "label": "No edit",
+      "description": "Use the previous commit message without launching an editor",
+      "type": "boolean",
+      "showWhen": {
+        "optionId": "amend",
+        "operator": "equals",
+        "value": true
+      }
+    },
+    {
+      "id": "signoff",
+      "short": "-s",
+      "label": "Sign-off",
+      "description": "Add a Signed-off-by trailer to the commit message",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Show unified diff of changes being committed in the editor",
+      "type": "boolean"
+    },
+    {
+      "id": "quiet",
+      "short": "-q",
+      "label": "Quiet",
+      "description": "Suppress commit summary output",
+      "type": "boolean"
+    },
+    {
+      "id": "dry-run",
+      "long": "--dry-run",
+      "label": "Dry run",
+      "description": "Show what would be committed without actually creating a commit",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "pathspec",
+      "label": "Pathspec",
+      "description": "Specific files to include in the commit",
+      "type": "file-path",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "exclusiveGroups": [
+    {
+      "label": "Verbosity",
+      "optionIds": ["verbose", "quiet"]
+    }
+  ],
+  "examples": [
+    {
+      "label": "Commit all changes with a message",
+      "values": {
+        "message": "fix: resolve login validation bug",
+        "all": true
+      }
+    },
+    {
+      "label": "Amend the last commit without changing the message",
+      "values": {
+        "amend": true,
+        "no-edit": true
+      }
+    },
+    {
+      "label": "Quick commit all changes with sign-off",
+      "values": {
+        "message": "feat: add user profile page",
+        "all": true,
+        "signoff": true
+      }
+    },
+    {
+      "label": "Verbose dry run to preview what would be committed",
+      "values": {
+        "message": "chore: update dependencies",
+        "all": true,
+        "verbose": true,
+        "dry-run": true
+      }
+    },
+    {
+      "label": "Commit specific files only",
+      "values": {
+        "message": "docs: update API documentation",
+        "pathspec": ["docs/api.md", "docs/changelog.md"]
+      }
+    },
+    {
+      "label": "Amend last commit with new message",
+      "values": {
+        "amend": true,
+        "message": "fix: correct typo in error handler"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "mkdir",
+  "name": "mkdir",
+  "executable": "mkdir",
+  "description": "Create new directories, optionally creating parent directories as needed",
+  "category": "filesystem",
+  "tags": ["directory", "create", "folder"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/mkdir.1.html",
+  "options": [
+    {
+      "id": "parents",
+      "short": "-p",
+      "label": "Create parents",
+      "description": "Create parent directories as needed, no error if existing",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Print a message for each created directory",
+      "type": "boolean"
+    },
+    {
+      "id": "mode",
+      "short": "-m",
+      "label": "Mode",
+      "description": "Set file permission mode (as in chmod) for the created directory",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "directory",
+      "label": "Directory",
+      "description": "Name of the directory to create",
+      "type": "string",
+      "required": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Create nested directory structure",
+      "values": {
+        "directory": "src/components/ui",
+        "parents": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Create directory with specific permissions",
+      "values": {
+        "directory": "secrets",
+        "mode": "700"
+      }
+    },
+    {
+      "label": "Create nested project scaffolding",
+      "values": {
+        "directory": "app/models/user",
+        "parents": true
+      }
+    },
+    {
+      "label": "Create a shared directory with open permissions",
+      "values": {
+        "directory": "/tmp/shared-workspace",
+        "mode": "777",
+        "verbose": true
+      }
+    },
+    {
+      "label": "Create deployment directory with restricted access",
+      "values": {
+        "directory": "/opt/myapp/config",
+        "parents": true,
+        "mode": "750",
+        "verbose": true
+      }
+    }
+  ]
+}

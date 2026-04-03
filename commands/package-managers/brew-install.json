@@ -1,0 +1,90 @@
+{
+  "id": "brew-install",
+  "name": "brew install",
+  "executable": "brew",
+  "subcommands": ["install"],
+  "description": "Install packages (formulae) or GUI applications (casks) using Homebrew",
+  "category": "package-managers",
+  "tags": ["homebrew", "macos", "packages", "install"],
+  "platforms": ["darwin"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.brew.sh/Manpage#install-options-formulacask-",
+  "options": [
+    {
+      "id": "cask",
+      "long": "--cask",
+      "label": "Cask",
+      "description": "Install a GUI application (cask) instead of a command-line formula",
+      "type": "boolean"
+    },
+    {
+      "id": "force",
+      "short": "-f",
+      "label": "Force",
+      "description": "Force install even if the package is already installed",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Print detailed installation information and debugging output",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "formula",
+      "label": "Formula",
+      "description": "Name of the formula or cask to install",
+      "type": "string",
+      "required": true,
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Install a command-line tool",
+      "values": {
+        "formula": ["ripgrep"]
+      }
+    },
+    {
+      "label": "Install a GUI application as a cask",
+      "values": {
+        "formula": ["visual-studio-code"],
+        "cask": true
+      }
+    },
+    {
+      "label": "Install multiple packages with verbose output",
+      "values": {
+        "formula": ["git", "node", "python"],
+        "verbose": true
+      }
+    },
+    {
+      "label": "Install a GUI app (cask) with verbose output",
+      "values": {
+        "formula": ["firefox"],
+        "cask": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Force reinstall an existing package",
+      "values": {
+        "formula": ["openssl"],
+        "force": true
+      }
+    },
+    {
+      "label": "Install multiple cask applications",
+      "values": {
+        "formula": ["slack", "discord", "spotify"],
+        "cask": true
+      }
+    }
+  ]
+}

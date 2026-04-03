@@ -1,0 +1,96 @@
+{
+  "id": "ping",
+  "name": "ping",
+  "executable": "ping",
+  "description": "Send ICMP echo requests to a network host to test connectivity and measure round-trip time",
+  "category": "networking",
+  "tags": ["network", "connectivity", "diagnostics", "latency"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man8/ping.8.html",
+  "options": [
+    {
+      "id": "count",
+      "short": "-c",
+      "label": "Count",
+      "description": "Stop after sending the specified number of echo requests",
+      "type": "number",
+      "validation": {
+        "min": 1,
+        "message": "Count must be at least 1"
+      }
+    },
+    {
+      "id": "interval",
+      "short": "-i",
+      "label": "Interval (seconds)",
+      "description": "Wait the specified number of seconds between sending each packet",
+      "type": "number",
+      "validation": {
+        "min": 0.1,
+        "message": "Interval must be at least 0.1 seconds"
+      }
+    },
+    {
+      "id": "timeout",
+      "short": "-W",
+      "label": "Timeout (seconds)",
+      "description": "Time to wait for a response before considering the packet lost",
+      "type": "number",
+      "validation": {
+        "min": 1,
+        "message": "Timeout must be at least 1 second"
+      }
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "host",
+      "label": "Host",
+      "description": "Hostname or IP address to ping",
+      "type": "string",
+      "required": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Ping a host 5 times",
+      "values": {
+        "host": "google.com",
+        "count": 5
+      }
+    },
+    {
+      "label": "Ping with custom interval and timeout",
+      "values": {
+        "host": "192.168.1.1",
+        "count": 10,
+        "interval": 0.5,
+        "timeout": 2
+      }
+    },
+    {
+      "label": "Quick connectivity check with 3 packets",
+      "values": {
+        "host": "8.8.8.8",
+        "count": 3
+      }
+    },
+    {
+      "label": "Ping with fast interval for rapid testing",
+      "values": {
+        "host": "192.168.0.1",
+        "count": 20,
+        "interval": 0.2
+      }
+    },
+    {
+      "label": "Ping with extended timeout for slow networks",
+      "values": {
+        "host": "remote-server.example.com",
+        "count": 5,
+        "timeout": 5
+      }
+    }
+  ]
+}

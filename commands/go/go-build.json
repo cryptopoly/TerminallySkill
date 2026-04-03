@@ -1,0 +1,60 @@
+{
+  "id": "go-build",
+  "name": "go build",
+  "executable": "go",
+  "subcommands": ["build"],
+  "description": "Compile Go packages and commands in the current module",
+  "category": "go",
+  "tags": ["go", "golang", "build", "compile"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies",
+  "options": [
+    {
+      "id": "output",
+      "short": "-o",
+      "label": "Output",
+      "description": "Write the build result to a named file",
+      "type": "string"
+    },
+    {
+      "id": "race",
+      "long": "-race",
+      "label": "Race detector",
+      "description": "Enable data race detection",
+      "type": "boolean"
+    },
+    {
+      "id": "tags",
+      "long": "-tags",
+      "label": "Build tags",
+      "description": "Comma-separated build tags to apply",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "packages",
+      "label": "Packages",
+      "description": "Packages or patterns to build",
+      "type": "string",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Build the current module",
+      "values": {
+        "packages": ["./..."]
+      }
+    },
+    {
+      "label": "Build a binary with race detection",
+      "values": {
+        "packages": ["."],
+        "output": "app",
+        "race": true
+      }
+    }
+  ]
+}

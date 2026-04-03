@@ -1,0 +1,84 @@
+{
+  "id": "python-pytest",
+  "name": "python -m pytest",
+  "executable": "python",
+  "subcommands": ["-m", "pytest"],
+  "description": "Run pytest through the active Python interpreter or virtual environment",
+  "category": "python",
+  "tags": ["python", "pytest", "testing", "tests"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.pytest.org/en/stable/how-to/usage.html",
+  "options": [
+    {
+      "id": "keyword",
+      "short": "-k",
+      "label": "Keyword expression",
+      "description": "Only run tests whose names match the expression",
+      "type": "string"
+    },
+    {
+      "id": "marker",
+      "short": "-m",
+      "label": "Marker expression",
+      "description": "Only run tests matching the given marker expression",
+      "type": "string"
+    },
+    {
+      "id": "quiet",
+      "short": "-q",
+      "label": "Quiet",
+      "description": "Reduce pytest output verbosity",
+      "type": "boolean"
+    },
+    {
+      "id": "exit-first",
+      "short": "-x",
+      "label": "Exit on first failure",
+      "description": "Stop after the first failing test",
+      "type": "boolean"
+    },
+    {
+      "id": "last-failed",
+      "long": "--lf",
+      "label": "Last failed",
+      "description": "Only rerun tests that failed in the last run",
+      "type": "boolean"
+    },
+    {
+      "id": "no-capture",
+      "short": "-s",
+      "label": "No capture",
+      "description": "Show stdout and stderr directly during test execution",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "targets",
+      "label": "Targets",
+      "description": "Files, folders, or node ids to test",
+      "type": "file-path",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run the full test suite",
+      "values": {}
+    },
+    {
+      "label": "Run only tests matching a keyword",
+      "values": {
+        "keyword": "login"
+      }
+    },
+    {
+      "label": "Run tests in a specific file and stop on first failure",
+      "values": {
+        "targets": ["tests/test_auth.py"],
+        "exit-first": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "ps",
+  "name": "ps",
+  "executable": "ps",
+  "description": "Display information about currently running processes on the system",
+  "category": "system",
+  "tags": ["process", "status", "monitor", "running"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/ps.1.html",
+  "options": [
+    {
+      "id": "all",
+      "short": "-e",
+      "label": "Show all processes",
+      "description": "Select all processes on the system, not just those owned by the current user",
+      "type": "boolean"
+    },
+    {
+      "id": "full",
+      "short": "-f",
+      "label": "Full format",
+      "description": "Display full-format listing with additional columns like UID, PPID, and start time",
+      "type": "boolean"
+    },
+    {
+      "id": "user",
+      "short": "-u",
+      "label": "User",
+      "description": "Show processes belonging to the specified user",
+      "type": "string"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Show all processes in full format",
+      "values": {
+        "all": true,
+        "full": true
+      }
+    },
+    {
+      "label": "Show processes for a specific user",
+      "values": {
+        "user": "root",
+        "full": true
+      }
+    },
+    {
+      "label": "Show all system processes",
+      "values": {
+        "all": true
+      }
+    },
+    {
+      "label": "Show current user's processes in full format",
+      "values": {
+        "full": true
+      }
+    },
+    {
+      "label": "Show processes for the www-data user",
+      "values": {
+        "user": "www-data",
+        "full": true
+      }
+    }
+  ]
+}

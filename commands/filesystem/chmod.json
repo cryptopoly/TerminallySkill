@@ -1,0 +1,77 @@
+{
+  "id": "chmod",
+  "name": "chmod",
+  "executable": "chmod",
+  "description": "Change file and directory access permissions using symbolic or octal notation",
+  "category": "filesystem",
+  "tags": ["permissions", "access", "security", "files"],
+  "dangerLevel": "caution",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/chmod.1.html",
+  "options": [
+    {
+      "id": "recursive",
+      "short": "-R",
+      "label": "Recursive",
+      "description": "Change permissions recursively for all files and subdirectories",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "mode",
+      "label": "Mode",
+      "description": "Permission mode in octal (e.g., 755) or symbolic (e.g., u+x) notation",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "files",
+      "label": "Files",
+      "description": "Files or directories to change permissions on",
+      "type": "file-path",
+      "required": true,
+      "variadic": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Make a script executable",
+      "values": {
+        "mode": "+x",
+        "files": ["script.sh"]
+      }
+    },
+    {
+      "label": "Set directory permissions recursively to 755",
+      "values": {
+        "mode": "755",
+        "files": ["./project"],
+        "recursive": true
+      }
+    },
+    {
+      "label": "Open read permissions for all users",
+      "values": {
+        "mode": "a+r",
+        "files": ["README.md", "LICENSE"]
+      }
+    },
+    {
+      "label": "Restrict file access to owner only",
+      "values": {
+        "mode": "700",
+        "files": [".env", "credentials.json"]
+      }
+    },
+    {
+      "label": "Make all shell scripts in a directory executable",
+      "values": {
+        "mode": "u+x",
+        "files": ["./scripts"],
+        "recursive": true
+      }
+    }
+  ]
+}

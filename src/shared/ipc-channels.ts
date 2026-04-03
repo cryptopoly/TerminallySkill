@@ -1,0 +1,121 @@
+export const IPC_CHANNELS = {
+  APP_GET_VERSION: 'app:get-version',
+  APP_CHECK_UPDATES: 'app:check-updates',
+  APP_DOWNLOAD_UPDATE: 'app:download-update',
+  APP_GET_DEFAULT_ICLOUD_BACKUP_DIR: 'app:get-default-icloud-backup-dir',
+  APP_CREATE_BACKUP: 'app:create-backup',
+  APP_NEW_WINDOW: 'app:new-window',
+  APP_NEW_WINDOW_PROJECT: 'app:new-window-project',
+  APP_GET_DATA_DIR_INFO: 'app:get-data-dir-info',
+  APP_MOVE_DATA_DIR: 'app:move-data-dir',
+  APP_RESET_DATA_DIR: 'app:reset-data-dir',
+  COMMANDS_LOAD_ALL: 'commands:load-all',
+  PTY_CREATE: 'pty:create',
+  PTY_WRITE: 'pty:write',
+  PTY_RESIZE: 'pty:resize',
+  PTY_KILL: 'pty:kill',
+  PTY_DATA: 'pty:data',
+  PTY_EXIT: 'pty:exit',
+  WORKFLOW_STEP_RESULT: 'workflow:step-result',
+  DIALOG_OPEN_FILE: 'dialog:open-file',
+  DIALOG_OPEN_DIRECTORY: 'dialog:open-directory',
+  CLIPBOARD_WRITE: 'clipboard:write',
+  SHELL_GET_DEFAULT: 'shell:get-default',
+
+  // Projects
+  PROJECTS_GET_ALL: 'projects:get-all',
+  PROJECTS_DETECT_STARTER_PACK: 'projects:detect-starter-pack',
+  PROJECTS_CREATE: 'projects:create',
+  PROJECTS_UPDATE: 'projects:update',
+  PROJECTS_DELETE: 'projects:delete',
+  PROJECTS_TEST_WORKSPACE_TARGET: 'projects:test-workspace-target',
+  PROJECTS_SET_ACTIVE: 'projects:set-active',
+  PROJECTS_TOGGLE_FAVORITE: 'projects:toggle-favorite',
+  PROJECTS_ADD_RECENT: 'projects:add-recent',
+
+  // File browser
+  FILES_LIST_DIR: 'files:list-dir',
+  FILES_CREATE_FILE: 'files:create-file',
+  FILES_GET_METADATA: 'files:get-metadata',
+  FILES_READ_CONTENT: 'files:read-content',
+  FILES_WRITE_CONTENT: 'files:write-content',
+  FILES_OPEN_IN_EXPLORER: 'files:open-in-explorer',
+  FILES_REVEAL_IN_EXPLORER: 'files:reveal-in-explorer',
+  FILES_CHECK_EXECUTABLE: 'files:check-executable',
+  FILES_SEARCH: 'files:search',
+
+  // Scripts
+  SCRIPTS_GET_ALL: 'scripts:get-all',
+  SCRIPTS_GET_BY_PROJECT: 'scripts:get-by-project',
+  SCRIPTS_CREATE: 'scripts:create',
+  SCRIPTS_UPDATE: 'scripts:update',
+  SCRIPTS_DELETE: 'scripts:delete',
+  SCRIPTS_ADD_STEP: 'scripts:add-step',
+  SCRIPTS_ADD_APPROVAL_STEP: 'scripts:add-approval-step',
+  SCRIPTS_ADD_NOTE_STEP: 'scripts:add-note-step',
+  SCRIPTS_REMOVE_STEP: 'scripts:remove-step',
+  SCRIPTS_REORDER_STEPS: 'scripts:reorder-steps',
+  SCRIPTS_MARK_RUN: 'scripts:mark-run',
+  SCRIPTS_DUPLICATE: 'scripts:duplicate',
+  SCRIPTS_CLONE_TO_PROJECT: 'scripts:clone-to-project',
+  SCRIPTS_EXPORT: 'scripts:export',
+  SCRIPTS_IMPORT: 'scripts:import',
+
+  // Snippets
+  SNIPPETS_GET_ALL: 'snippets:get-all',
+  SNIPPETS_CREATE: 'snippets:create',
+  SNIPPETS_UPDATE: 'snippets:update',
+  SNIPPETS_DELETE: 'snippets:delete',
+  SNIPPETS_DUPLICATE: 'snippets:duplicate',
+  SNIPPETS_MARK_RUN: 'snippets:mark-run',
+
+  // Command detection
+  COMMANDS_SCAN_PATH: 'commands:scan-path',
+  COMMANDS_PARSE_HELP: 'commands:parse-help',
+  COMMANDS_ADD_MANUAL: 'commands:add-manual',
+  COMMANDS_REMOVE_DISCOVERED: 'commands:remove-discovered',
+  COMMANDS_RESET_TREES: 'commands:reset-trees',
+  COMMANDS_SAVE_DISCOVERED: 'commands:save-discovered',
+  COMMANDS_SAVE_ENRICHED: 'commands:save-enriched',
+  COMMANDS_SAVE_ENRICHED_BULK: 'commands:save-enriched-bulk',
+  COMMANDS_FIND_COMMAND: 'commands:find-command',
+  COMMANDS_SEARCH_INSTALLABLE: 'commands:search-installable',
+  COMMANDS_FIX_PATH: 'commands:fix-path',
+  COMMANDS_GET_SHELL_CONFIG: 'commands:get-shell-config',
+
+  // Terminal logs
+  LOGS_SAVE_SESSION: 'logs:save-session',
+  LOGS_GET_INDEX: 'logs:get-index',
+  LOGS_GET_BY_PROJECT: 'logs:get-by-project',
+  LOGS_READ_CONTENT: 'logs:read-content',
+  LOGS_SEARCH: 'logs:search',
+  LOGS_DELETE: 'logs:delete',
+  LOGS_GET_BASE_PATH: 'logs:get-base-path',
+  RUNS_GET_INDEX: 'runs:get-index',
+  RUNS_SEARCH: 'runs:search',
+  RUNS_UPSERT: 'runs:upsert',
+  PTY_GET_SESSION_INFO: 'pty:get-session-info',
+
+  // Settings
+  SETTINGS_GET: 'settings:get',
+  SETTINGS_UPDATE: 'settings:update',
+  SETTINGS_UPDATE_PROVIDER: 'settings:update-provider',
+  SETTINGS_TEST_AI: 'settings:test-ai',
+  SETTINGS_LIST_AI_MODELS: 'settings:list-ai-models',
+  AI_RUN_ACTION: 'ai:run-action',
+
+  // Shell integration
+  SHELL_READY: 'shell:ready',
+  SHELL_EVENT: 'shell:event',
+
+  // Shell utilities
+  SHELL_OPEN_EXTERNAL: 'shell:open-external',
+
+  // VNC
+  VNC_START: 'vnc:start',
+  VNC_STOP: 'vnc:stop',
+  VNC_ERROR: 'vnc:error',
+  VNC_GET_PASSWORD: 'vnc:get-password',
+  VNC_SAVE_PASSWORD: 'vnc:save-password',
+  VNC_DELETE_PASSWORD: 'vnc:delete-password'
+} as const

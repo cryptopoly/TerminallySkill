@@ -1,0 +1,158 @@
+{
+  "id": "grep",
+  "name": "grep",
+  "executable": "grep",
+  "description": "Search for text patterns in files using regular expressions and print matching lines",
+  "category": "text-processing",
+  "tags": ["search", "pattern", "regex", "text", "filter"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/grep.1.html",
+  "options": [
+    {
+      "id": "ignore-case",
+      "short": "-i",
+      "label": "Ignore case",
+      "description": "Perform case-insensitive pattern matching",
+      "type": "boolean"
+    },
+    {
+      "id": "recursive",
+      "short": "-r",
+      "label": "Recursive",
+      "description": "Recursively search all files under each directory",
+      "type": "boolean"
+    },
+    {
+      "id": "line-number",
+      "short": "-n",
+      "label": "Line numbers",
+      "description": "Prefix each line of output with the line number within its file",
+      "type": "boolean"
+    },
+    {
+      "id": "count",
+      "short": "-c",
+      "label": "Count",
+      "description": "Print only a count of matching lines per file instead of the lines themselves",
+      "type": "boolean"
+    },
+    {
+      "id": "invert-match",
+      "short": "-v",
+      "label": "Invert match",
+      "description": "Select lines that do not match the pattern",
+      "type": "boolean"
+    },
+    {
+      "id": "extended-regex",
+      "short": "-E",
+      "label": "Extended regex",
+      "description": "Interpret the pattern as an extended regular expression (ERE)",
+      "type": "boolean"
+    },
+    {
+      "id": "context",
+      "short": "-C",
+      "label": "Context lines",
+      "description": "Print the specified number of lines of context before and after each match",
+      "type": "number",
+      "validation": {
+        "min": 0,
+        "message": "Context lines must be 0 or greater"
+      }
+    },
+    {
+      "id": "include",
+      "long": "--include",
+      "label": "Include pattern",
+      "description": "Only search files matching the given filename glob pattern (e.g., *.js)",
+      "type": "string"
+    },
+    {
+      "id": "exclude",
+      "long": "--exclude",
+      "label": "Exclude pattern",
+      "description": "Skip files matching the given filename glob pattern (e.g., *.min.js)",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "pattern",
+      "label": "Pattern",
+      "description": "The regular expression pattern to search for",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "files",
+      "label": "Files",
+      "description": "Files or directories to search in",
+      "type": "file-path",
+      "variadic": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Search for a pattern recursively in JavaScript files",
+      "values": {
+        "pattern": "TODO",
+        "files": ["./src"],
+        "recursive": true,
+        "line-number": true,
+        "include": "*.js"
+      }
+    },
+    {
+      "label": "Case-insensitive search with context lines",
+      "values": {
+        "pattern": "error",
+        "files": ["app.log"],
+        "ignore-case": true,
+        "context": 3
+      }
+    },
+    {
+      "label": "Count occurrences of a pattern using extended regex",
+      "values": {
+        "pattern": "(warn|error|fatal)",
+        "files": ["*.log"],
+        "extended-regex": true,
+        "count": true
+      }
+    },
+    {
+      "label": "Case-insensitive recursive search with line numbers",
+      "values": {
+        "pattern": "fixme",
+        "files": ["./src"],
+        "ignore-case": true,
+        "recursive": true,
+        "line-number": true
+      }
+    },
+    {
+      "label": "Count matches per file across a project",
+      "values": {
+        "pattern": "console.log",
+        "files": ["./src"],
+        "recursive": true,
+        "count": true,
+        "include": "*.ts"
+      }
+    },
+    {
+      "label": "Search specific file types excluding minified files",
+      "values": {
+        "pattern": "import",
+        "files": ["./src"],
+        "recursive": true,
+        "line-number": true,
+        "include": "*.js",
+        "exclude": "*.min.js"
+      }
+    }
+  ]
+}

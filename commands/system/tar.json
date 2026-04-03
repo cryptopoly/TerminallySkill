@@ -1,0 +1,131 @@
+{
+  "id": "tar",
+  "name": "tar",
+  "executable": "tar",
+  "description": "Create, extract, or list contents of tar archives, optionally with compression",
+  "category": "system",
+  "tags": ["archive", "compress", "extract", "backup", "bundle"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/tar.1.html",
+  "options": [
+    {
+      "id": "create",
+      "short": "-c",
+      "label": "Create",
+      "description": "Create a new archive from the specified files",
+      "type": "boolean"
+    },
+    {
+      "id": "extract",
+      "short": "-x",
+      "label": "Extract",
+      "description": "Extract files from an existing archive",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "List each file as it is processed",
+      "type": "boolean"
+    },
+    {
+      "id": "gzip",
+      "short": "-z",
+      "label": "Gzip compression",
+      "description": "Compress or decompress the archive using gzip",
+      "type": "boolean"
+    },
+    {
+      "id": "file",
+      "short": "-f",
+      "label": "Archive file",
+      "description": "Name of the archive file to create or extract from",
+      "type": "file-path",
+      "required": true
+    },
+    {
+      "id": "directory",
+      "short": "-C",
+      "label": "Change directory",
+      "description": "Change to the specified directory before performing operations",
+      "type": "directory-path"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "files",
+      "label": "Files",
+      "description": "Files or directories to include in the archive (for creation)",
+      "type": "file-path",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "exclusiveGroups": [
+    {
+      "label": "Operation mode",
+      "optionIds": ["create", "extract"],
+      "required": true
+    }
+  ],
+  "examples": [
+    {
+      "label": "Create a gzipped archive of a directory",
+      "values": {
+        "create": true,
+        "gzip": true,
+        "verbose": true,
+        "file": "project-backup.tar.gz",
+        "files": ["./src", "./package.json"]
+      }
+    },
+    {
+      "label": "Extract a gzipped archive to a specific directory",
+      "values": {
+        "extract": true,
+        "gzip": true,
+        "verbose": true,
+        "file": "project-backup.tar.gz",
+        "directory": "./restored"
+      }
+    },
+    {
+      "label": "Create an uncompressed archive",
+      "values": {
+        "create": true,
+        "file": "logs.tar",
+        "files": ["/var/log/app/*.log"],
+        "verbose": true
+      }
+    },
+    {
+      "label": "Extract archive to current directory",
+      "values": {
+        "extract": true,
+        "gzip": true,
+        "file": "release-v2.0.tar.gz"
+      }
+    },
+    {
+      "label": "Extract to a specific output directory",
+      "values": {
+        "extract": true,
+        "gzip": true,
+        "file": "deploy-package.tar.gz",
+        "directory": "/opt/app",
+        "verbose": true
+      }
+    },
+    {
+      "label": "Create a gzipped backup of the entire project",
+      "values": {
+        "create": true,
+        "gzip": true,
+        "file": "full-backup.tar.gz",
+        "files": ["."],
+        "verbose": true
+      }
+    }
+  ]
+}

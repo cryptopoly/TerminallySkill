@@ -1,0 +1,145 @@
+{
+  "id": "curl",
+  "name": "curl",
+  "executable": "curl",
+  "description": "Transfer data from or to a server using various protocols, commonly used for HTTP requests and API testing",
+  "category": "networking",
+  "tags": ["http", "api", "request", "download", "transfer"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://curl.se/docs/manpage.html",
+  "options": [
+    {
+      "id": "output",
+      "short": "-o",
+      "label": "Output file",
+      "description": "Write output to a file instead of stdout",
+      "type": "file-path"
+    },
+    {
+      "id": "method",
+      "short": "-X",
+      "label": "HTTP method",
+      "description": "Specify the HTTP request method to use",
+      "type": "enum",
+      "choices": [
+        { "value": "GET", "label": "GET", "description": "Retrieve a resource" },
+        { "value": "POST", "label": "POST", "description": "Submit data to create a resource" },
+        { "value": "PUT", "label": "PUT", "description": "Replace a resource entirely" },
+        { "value": "DELETE", "label": "DELETE", "description": "Remove a resource" },
+        { "value": "PATCH", "label": "PATCH", "description": "Partially update a resource" },
+        { "value": "HEAD", "label": "HEAD", "description": "Retrieve headers only, no body" }
+      ]
+    },
+    {
+      "id": "header",
+      "short": "-H",
+      "label": "Header",
+      "description": "Add a custom HTTP header to the request (e.g., 'Content-Type: application/json')",
+      "type": "string",
+      "repeatable": true
+    },
+    {
+      "id": "data",
+      "short": "-d",
+      "label": "Data",
+      "description": "Send data in the request body (automatically sets method to POST if not specified)",
+      "type": "string",
+      "showWhen": {
+        "optionId": "method",
+        "operator": "isSet"
+      }
+    },
+    {
+      "id": "follow-redirects",
+      "short": "-L",
+      "label": "Follow redirects",
+      "description": "Follow HTTP redirects (3xx responses) to the final destination",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Show detailed information about the request and response including headers",
+      "type": "boolean"
+    },
+    {
+      "id": "silent",
+      "short": "-s",
+      "label": "Silent",
+      "description": "Suppress progress meter and error messages",
+      "type": "boolean"
+    },
+    {
+      "id": "insecure",
+      "short": "-k",
+      "label": "Insecure",
+      "description": "Allow connections to SSL sites without valid certificates",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "url",
+      "label": "URL",
+      "description": "The URL to send the request to",
+      "type": "string",
+      "required": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Send a JSON POST request to an API",
+      "values": {
+        "url": "https://api.example.com/users",
+        "method": "POST",
+        "header": ["Content-Type: application/json", "Authorization: Bearer token"],
+        "data": "{\"name\": \"John\", \"email\": \"john@example.com\"}"
+      }
+    },
+    {
+      "label": "Download a file following redirects",
+      "values": {
+        "url": "https://example.com/file.zip",
+        "output": "file.zip",
+        "follow-redirects": true,
+        "silent": true
+      }
+    },
+    {
+      "label": "Make a verbose GET request",
+      "values": {
+        "url": "https://api.example.com/status",
+        "verbose": true,
+        "method": "GET"
+      }
+    },
+    {
+      "label": "GET request with custom headers",
+      "values": {
+        "url": "https://api.example.com/data",
+        "method": "GET",
+        "header": ["Accept: application/json", "X-API-Key: my-api-key"]
+      }
+    },
+    {
+      "label": "Follow redirects silently and save output",
+      "values": {
+        "url": "https://example.com/latest-release",
+        "follow-redirects": true,
+        "silent": true,
+        "output": "release.tar.gz"
+      }
+    },
+    {
+      "label": "DELETE request to remove a resource",
+      "values": {
+        "url": "https://api.example.com/users/42",
+        "method": "DELETE",
+        "header": ["Authorization: Bearer token"],
+        "verbose": true
+      }
+    }
+  ]
+}

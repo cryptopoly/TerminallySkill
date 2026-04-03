@@ -1,0 +1,130 @@
+{
+  "id": "git-log",
+  "name": "git log",
+  "executable": "git",
+  "subcommands": ["log"],
+  "description": "Show the commit history log with various formatting and filtering options",
+  "category": "git",
+  "tags": ["version-control", "history", "commits", "log"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://git-scm.com/docs/git-log",
+  "options": [
+    {
+      "id": "oneline",
+      "long": "--oneline",
+      "label": "One line",
+      "description": "Show each commit as a single line with abbreviated hash and subject",
+      "type": "boolean"
+    },
+    {
+      "id": "graph",
+      "long": "--graph",
+      "label": "Graph",
+      "description": "Draw a text-based graphical representation of the branch structure",
+      "type": "boolean"
+    },
+    {
+      "id": "all",
+      "long": "--all",
+      "label": "All branches",
+      "description": "Show commits from all branches, not just the current one",
+      "type": "boolean"
+    },
+    {
+      "id": "n",
+      "short": "-n",
+      "label": "Number of commits",
+      "description": "Limit the number of commits to display",
+      "type": "number",
+      "validation": {
+        "min": 1,
+        "message": "Number of commits must be at least 1"
+      }
+    },
+    {
+      "id": "author",
+      "long": "--author",
+      "label": "Author",
+      "description": "Only show commits by authors matching the specified pattern",
+      "type": "string"
+    },
+    {
+      "id": "since",
+      "long": "--since",
+      "label": "Since",
+      "description": "Show commits after a specific date (e.g., '2 weeks ago', '2024-01-01')",
+      "type": "string"
+    },
+    {
+      "id": "until",
+      "long": "--until",
+      "label": "Until",
+      "description": "Show commits before a specific date (e.g., 'yesterday', '2024-12-31')",
+      "type": "string"
+    },
+    {
+      "id": "format",
+      "long": "--format",
+      "label": "Format",
+      "description": "Pretty-print the commit log in a specific format",
+      "type": "enum",
+      "separator": "equals",
+      "choices": [
+        { "value": "oneline", "label": "One line", "description": "Abbreviated hash and subject on a single line" },
+        { "value": "short", "label": "Short", "description": "Hash, author, and subject" },
+        { "value": "medium", "label": "Medium", "description": "Hash, author, date, and full commit message" },
+        { "value": "full", "label": "Full", "description": "Hash, author, committer, and full commit message" },
+        { "value": "fuller", "label": "Fuller", "description": "Hash, author, author date, committer, commit date, and message" }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "label": "Show branch graph with one-line commits",
+      "values": {
+        "oneline": true,
+        "graph": true,
+        "all": true
+      }
+    },
+    {
+      "label": "Show last 10 commits by a specific author",
+      "values": {
+        "n": 10,
+        "author": "dan",
+        "format": "short"
+      }
+    },
+    {
+      "label": "Show commits from the last two weeks",
+      "values": {
+        "since": "2 weeks ago",
+        "oneline": true
+      }
+    },
+    {
+      "label": "Pretty graph view of all branches",
+      "values": {
+        "graph": true,
+        "all": true,
+        "oneline": true,
+        "n": 30
+      }
+    },
+    {
+      "label": "Commits by a specific author this month",
+      "values": {
+        "author": "dan",
+        "since": "1 month ago",
+        "format": "medium"
+      }
+    },
+    {
+      "label": "One-line compact view of last 20 commits",
+      "values": {
+        "oneline": true,
+        "n": 20
+      }
+    }
+  ]
+}

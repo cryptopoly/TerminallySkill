@@ -1,0 +1,57 @@
+{
+  "id": "cargo-run",
+  "name": "cargo run",
+  "executable": "cargo",
+  "subcommands": ["run"],
+  "description": "Build and run a Rust binary with Cargo",
+  "category": "rust",
+  "tags": ["rust", "cargo", "run", "binary"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://doc.rust-lang.org/cargo/commands/cargo-run.html",
+  "options": [
+    {
+      "id": "release",
+      "long": "--release",
+      "label": "Release",
+      "description": "Run the optimized release build",
+      "type": "boolean"
+    },
+    {
+      "id": "bin",
+      "long": "--bin",
+      "label": "Binary",
+      "description": "Run a specific binary target",
+      "type": "string"
+    },
+    {
+      "id": "example",
+      "long": "--example",
+      "label": "Example",
+      "description": "Run a specific example target",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "args",
+      "label": "Arguments",
+      "description": "Arguments passed to the binary after --",
+      "type": "string",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run the default binary",
+      "values": {}
+    },
+    {
+      "label": "Run a specific binary in release mode",
+      "values": {
+        "bin": "api",
+        "release": true
+      }
+    }
+  ]
+}

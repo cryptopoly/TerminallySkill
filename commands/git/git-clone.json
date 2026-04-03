@@ -1,0 +1,120 @@
+{
+  "id": "git-clone",
+  "name": "git clone",
+  "executable": "git",
+  "subcommands": ["clone"],
+  "description": "Clone a remote repository into a new local directory, copying all branches and history",
+  "category": "git",
+  "tags": ["version-control", "download", "repository", "remote"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://git-scm.com/docs/git-clone",
+  "options": [
+    {
+      "id": "depth",
+      "long": "--depth",
+      "label": "Depth",
+      "description": "Create a shallow clone with history truncated to the specified number of commits",
+      "type": "number",
+      "validation": {
+        "min": 1,
+        "message": "Depth must be at least 1"
+      }
+    },
+    {
+      "id": "branch",
+      "short": "-b",
+      "label": "Branch",
+      "description": "Clone and check out a specific branch instead of the default",
+      "type": "string"
+    },
+    {
+      "id": "single-branch",
+      "long": "--single-branch",
+      "label": "Single branch",
+      "description": "Clone only the history of a single branch, reducing download size",
+      "type": "boolean"
+    },
+    {
+      "id": "bare",
+      "long": "--bare",
+      "label": "Bare",
+      "description": "Create a bare repository without a working directory",
+      "type": "boolean"
+    },
+    {
+      "id": "recursive",
+      "long": "--recursive",
+      "label": "Recursive",
+      "description": "Initialize and clone all submodules recursively",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "repository",
+      "label": "Repository URL",
+      "description": "URL or path of the repository to clone",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "directory",
+      "label": "Directory",
+      "description": "Name of the local directory to clone into",
+      "type": "string",
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Shallow clone a specific branch",
+      "values": {
+        "repository": "https://github.com/user/repo.git",
+        "branch": "main",
+        "depth": 1,
+        "single-branch": true
+      }
+    },
+    {
+      "label": "Clone with submodules into a named directory",
+      "values": {
+        "repository": "https://github.com/user/repo.git",
+        "directory": "my-project",
+        "recursive": true
+      }
+    },
+    {
+      "label": "Shallow clone (depth 1) for CI/CD pipelines",
+      "values": {
+        "repository": "https://github.com/user/repo.git",
+        "depth": 1
+      }
+    },
+    {
+      "label": "Clone a specific feature branch",
+      "values": {
+        "repository": "https://github.com/user/repo.git",
+        "branch": "feature/authentication",
+        "single-branch": true,
+        "directory": "auth-feature"
+      }
+    },
+    {
+      "label": "Clone with all submodules recursively",
+      "values": {
+        "repository": "https://github.com/user/monorepo.git",
+        "recursive": true,
+        "directory": "monorepo"
+      }
+    },
+    {
+      "label": "Create a bare repository for a server mirror",
+      "values": {
+        "repository": "https://github.com/user/repo.git",
+        "bare": true,
+        "directory": "repo.git"
+      }
+    }
+  ]
+}

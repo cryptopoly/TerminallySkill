@@ -1,0 +1,69 @@
+{
+  "id": "npm-run",
+  "name": "npm run",
+  "executable": "npm",
+  "subcommands": ["run"],
+  "description": "Run a script defined in the project's package.json scripts section",
+  "category": "package-managers",
+  "tags": ["nodejs", "scripts", "npm", "task-runner"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.npmjs.com/cli/v10/commands/npm-run-script",
+  "positionalArgs": [
+    {
+      "id": "script",
+      "label": "Script name",
+      "description": "Name of the script to run as defined in package.json",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "args",
+      "label": "Arguments",
+      "description": "Additional arguments to pass to the script (after --)",
+      "type": "string",
+      "variadic": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run the dev server",
+      "values": {
+        "script": "dev"
+      }
+    },
+    {
+      "label": "Run tests with additional arguments",
+      "values": {
+        "script": "test",
+        "args": ["--coverage", "--watch"]
+      }
+    },
+    {
+      "label": "Run the production build",
+      "values": {
+        "script": "build"
+      }
+    },
+    {
+      "label": "Run linter on the project",
+      "values": {
+        "script": "lint"
+      }
+    },
+    {
+      "label": "Run tests in CI mode",
+      "values": {
+        "script": "test",
+        "args": ["--ci", "--reporters=default"]
+      }
+    },
+    {
+      "label": "Run the start script for production",
+      "values": {
+        "script": "start"
+      }
+    }
+  ]
+}

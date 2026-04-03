@@ -1,0 +1,72 @@
+{
+  "name": "terminallyskill",
+  "version": "0.9.2",
+  "description": "TerminallySKILL prompt-aware command builder and workspace",
+  "author": {
+    "name": "TerminallySKILL",
+    "email": "info@terminallyskill.com"
+  },
+  "main": "./out/main/index.js",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "generate-icon": "node scripts/generate-icon.mjs",
+    "generate-update-feeds": "node scripts/generate-update-feeds.mjs",
+    "package": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --publish never && npm run generate-update-feeds",
+    "package:mac": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --mac --x64 --publish never && electron-builder --config electron-builder.config.mjs --mac --arm64 --publish never && npm run generate-update-feeds",
+    "package:mac:x64": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --mac --x64 --publish never && npm run generate-update-feeds",
+    "package:mac:arm64": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --mac --arm64 --publish never && npm run generate-update-feeds",
+    "package:linux": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --linux --publish never && npm run generate-update-feeds",
+    "build:linux": "npm run package:linux",
+    "package:linux:x64": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --linux --x64 --publish never && npm run generate-update-feeds",
+    "package:linux:arm64": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --linux --arm64 --publish never && npm run generate-update-feeds",
+    "package:win": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --win --publish never && npm run generate-update-feeds",
+    "package:win:x64": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --win --x64 --publish never && npm run generate-update-feeds",
+    "package:win:arm64": "npm run generate-icon && electron-vite build && electron-builder --config electron-builder.config.mjs --win --arm64 --publish never && npm run generate-update-feeds",
+    "package:all": "node scripts/package-all.mjs",
+    "package:all:cross": "npm run package:mac:x64 && npm run package:mac:arm64 && npm run package:linux:x64 && npm run package:linux:arm64 && npm run package:win:x64 && npm run package:win:arm64",
+    "postinstall": "electron-builder install-app-deps",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@electron-toolkit/utils": "^4.0.0",
+    "@novnc/novnc": "^1.6.0",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/addon-search": "^0.16.0",
+    "@xterm/addon-serialize": "^0.14.0",
+    "@xterm/addon-web-links": "^0.11.0",
+    "@xterm/xterm": "^5.5.0",
+    "clsx": "^2.1.1",
+    "electron-updater": "^6.8.3",
+    "fuse.js": "^7.0.0",
+    "highlight.js": "^11.11.1",
+    "lucide-react": "^0.468.0",
+    "node-pty": "^1.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-resizable-panels": "^2.1.7",
+    "ws": "^8.20.0",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}

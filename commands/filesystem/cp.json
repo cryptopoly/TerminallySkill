@@ -1,0 +1,112 @@
+{
+  "id": "cp",
+  "name": "cp",
+  "executable": "cp",
+  "description": "Copy files and directories from one location to another",
+  "category": "filesystem",
+  "tags": ["copy", "files", "duplicate", "backup"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/cp.1.html",
+  "options": [
+    {
+      "id": "recursive",
+      "short": "-r",
+      "label": "Recursive",
+      "description": "Copy directories and their contents recursively",
+      "type": "boolean"
+    },
+    {
+      "id": "force",
+      "short": "-f",
+      "label": "Force",
+      "description": "Force overwrite of existing destination files without prompting",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Print the name of each file as it is copied",
+      "type": "boolean"
+    },
+    {
+      "id": "interactive",
+      "short": "-i",
+      "label": "Interactive",
+      "description": "Prompt before overwriting existing files",
+      "type": "boolean"
+    },
+    {
+      "id": "preserve",
+      "short": "-p",
+      "label": "Preserve attributes",
+      "description": "Preserve file mode, ownership, and timestamps",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "source",
+      "label": "Source",
+      "description": "Source file or directory to copy",
+      "type": "file-path",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "destination",
+      "label": "Destination",
+      "description": "Destination path to copy to",
+      "type": "file-path",
+      "required": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Copy a directory recursively with verbose output",
+      "values": {
+        "source": "./src",
+        "destination": "./src-backup",
+        "recursive": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Copy a file interactively to avoid overwriting",
+      "values": {
+        "source": "config.yml",
+        "destination": "/etc/app/config.yml",
+        "interactive": true,
+        "preserve": true
+      }
+    },
+    {
+      "label": "Copy directory recursively preserving all attributes",
+      "values": {
+        "source": "/var/www/html",
+        "destination": "/var/www/html-backup",
+        "recursive": true,
+        "preserve": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Copy with confirmation before overwrite",
+      "values": {
+        "source": "report.pdf",
+        "destination": "~/Documents/report.pdf",
+        "interactive": true
+      }
+    },
+    {
+      "label": "Force copy overwriting existing files",
+      "values": {
+        "source": "./dist",
+        "destination": "/var/www/app",
+        "recursive": true,
+        "force": true
+      }
+    }
+  ]
+}

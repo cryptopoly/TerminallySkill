@@ -1,0 +1,91 @@
+{
+  "id": "rm",
+  "name": "rm",
+  "executable": "rm",
+  "description": "Remove files or directories permanently from the filesystem",
+  "category": "filesystem",
+  "tags": ["remove", "delete", "files", "cleanup"],
+  "dangerLevel": "destructive",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/rm.1.html",
+  "options": [
+    {
+      "id": "recursive",
+      "short": "-r",
+      "label": "Recursive",
+      "description": "Remove directories and their contents recursively",
+      "type": "boolean"
+    },
+    {
+      "id": "force",
+      "short": "-f",
+      "label": "Force",
+      "description": "Ignore nonexistent files and never prompt before removing",
+      "type": "boolean"
+    },
+    {
+      "id": "verbose",
+      "short": "-v",
+      "label": "Verbose",
+      "description": "Print the name of each file as it is removed",
+      "type": "boolean"
+    },
+    {
+      "id": "interactive",
+      "short": "-i",
+      "label": "Interactive",
+      "description": "Prompt before every removal",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "files",
+      "label": "Files",
+      "description": "Files or directories to remove",
+      "type": "file-path",
+      "required": true,
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Remove a directory and all its contents",
+      "values": {
+        "files": ["./old-project"],
+        "recursive": true
+      }
+    },
+    {
+      "label": "Interactively remove files with verbose output",
+      "values": {
+        "files": ["*.tmp", "*.log"],
+        "interactive": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Remove directory recursively with verbose feedback",
+      "values": {
+        "files": ["./node_modules"],
+        "recursive": true,
+        "verbose": true
+      }
+    },
+    {
+      "label": "Interactive removal of selected files",
+      "values": {
+        "files": ["draft-v1.doc", "draft-v2.doc", "notes.txt"],
+        "interactive": true
+      }
+    },
+    {
+      "label": "Force remove build artifacts",
+      "values": {
+        "files": ["./dist", "./build", "./.cache"],
+        "recursive": true,
+        "force": true
+      }
+    }
+  ]
+}

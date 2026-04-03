@@ -1,0 +1,95 @@
+{
+  "id": "sed",
+  "name": "sed",
+  "executable": "sed",
+  "description": "Stream editor for filtering and transforming text, commonly used for find-and-replace operations",
+  "category": "text-processing",
+  "tags": ["text", "replace", "transform", "edit", "stream"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/sed.1.html",
+  "options": [
+    {
+      "id": "in-place",
+      "short": "-i",
+      "label": "In-place editing",
+      "description": "Edit files in place, modifying the original file directly instead of printing to stdout",
+      "type": "boolean",
+      "dangerLevel": "caution"
+    },
+    {
+      "id": "extended-regex",
+      "short": "-E",
+      "label": "Extended regex",
+      "description": "Use extended regular expressions for more powerful pattern matching",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "expression",
+      "label": "Expression",
+      "description": "The sed expression to apply (e.g., 's/old/new/g' for global substitution)",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "files",
+      "label": "Files",
+      "description": "Input files to process (reads from stdin if omitted)",
+      "type": "file-path",
+      "variadic": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Replace all occurrences of a word in a file",
+      "values": {
+        "expression": "s/oldword/newword/g",
+        "files": ["config.txt"],
+        "in-place": true
+      }
+    },
+    {
+      "label": "Delete lines matching a pattern",
+      "values": {
+        "expression": "/^#/d",
+        "files": ["config.ini"]
+      }
+    },
+    {
+      "label": "Replace using extended regex with capture groups",
+      "values": {
+        "expression": "s/(error|warn): (.+)/[\\1] \\2/g",
+        "files": ["app.log"],
+        "extended-regex": true
+      }
+    },
+    {
+      "label": "Find and replace in-place across multiple files",
+      "values": {
+        "expression": "s/localhost:3000/api.example.com/g",
+        "files": ["src/config.js", "src/api.js"],
+        "in-place": true
+      }
+    },
+    {
+      "label": "Delete lines matching a pattern in-place",
+      "values": {
+        "expression": "/console.log/d",
+        "files": ["app.js"],
+        "in-place": true
+      }
+    },
+    {
+      "label": "Replace version number using extended regex",
+      "values": {
+        "expression": "s/version: [0-9]+\\.[0-9]+\\.[0-9]+/version: 2.0.0/g",
+        "files": ["package.json"],
+        "extended-regex": true,
+        "in-place": true
+      }
+    }
+  ]
+}

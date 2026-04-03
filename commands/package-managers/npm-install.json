@@ -1,0 +1,93 @@
+{
+  "id": "npm-install",
+  "name": "npm install",
+  "executable": "npm",
+  "subcommands": ["install"],
+  "description": "Install Node.js packages from the npm registry or from a package.json file",
+  "category": "package-managers",
+  "tags": ["nodejs", "packages", "dependencies", "npm"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.npmjs.com/cli/v10/commands/npm-install",
+  "options": [
+    {
+      "id": "save-dev",
+      "short": "-D",
+      "label": "Save as dev dependency",
+      "description": "Install and save the package as a development dependency in package.json",
+      "type": "boolean"
+    },
+    {
+      "id": "global",
+      "short": "-g",
+      "label": "Global",
+      "description": "Install the package globally, making it available system-wide",
+      "type": "boolean"
+    },
+    {
+      "id": "save-exact",
+      "short": "-E",
+      "label": "Save exact version",
+      "description": "Save the exact version number rather than using a semver range",
+      "type": "boolean"
+    },
+    {
+      "id": "legacy-peer-deps",
+      "long": "--legacy-peer-deps",
+      "label": "Legacy peer deps",
+      "description": "Ignore peer dependency conflicts, using legacy npm behavior",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "packages",
+      "label": "Packages",
+      "description": "Package names to install (omit to install from package.json)",
+      "type": "string",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Install a package as a dev dependency",
+      "values": {
+        "packages": ["typescript", "@types/node"],
+        "save-dev": true
+      }
+    },
+    {
+      "label": "Install all dependencies from package.json",
+      "values": {}
+    },
+    {
+      "label": "Install a package globally",
+      "values": {
+        "packages": ["tsx"],
+        "global": true
+      }
+    },
+    {
+      "label": "Install an exact version of a package",
+      "values": {
+        "packages": ["react@18.2.0"],
+        "save-exact": true
+      }
+    },
+    {
+      "label": "Install with legacy peer dependency resolution",
+      "values": {
+        "packages": ["react-scripts"],
+        "legacy-peer-deps": true
+      }
+    },
+    {
+      "label": "Install multiple dev tools at exact versions",
+      "values": {
+        "packages": ["eslint", "prettier", "husky"],
+        "save-dev": true,
+        "save-exact": true
+      }
+    }
+  ]
+}

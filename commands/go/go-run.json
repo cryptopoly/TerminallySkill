@@ -1,0 +1,60 @@
+{
+  "id": "go-run",
+  "name": "go run",
+  "executable": "go",
+  "subcommands": ["run"],
+  "description": "Compile and run Go packages or files directly",
+  "category": "go",
+  "tags": ["go", "golang", "run", "execute"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program",
+  "options": [
+    {
+      "id": "race",
+      "long": "-race",
+      "label": "Race detector",
+      "description": "Enable data race detection",
+      "type": "boolean"
+    },
+    {
+      "id": "tags",
+      "long": "-tags",
+      "label": "Build tags",
+      "description": "Comma-separated build tags to apply",
+      "type": "string"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "target",
+      "label": "Target",
+      "description": "Package path, module pattern, or Go file to run",
+      "type": "string",
+      "required": true,
+      "position": 0
+    },
+    {
+      "id": "args",
+      "label": "Arguments",
+      "description": "Arguments passed to the compiled program",
+      "type": "string",
+      "variadic": true,
+      "position": 1
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run the current module",
+      "values": {
+        "target": "."
+      }
+    },
+    {
+      "label": "Run a specific package with program arguments",
+      "values": {
+        "target": "./cmd/api",
+        "args": ["--port", "8080"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "go-test",
+  "name": "go test",
+  "executable": "go",
+  "subcommands": ["test"],
+  "description": "Run Go tests for packages in the current module",
+  "category": "go",
+  "tags": ["go", "golang", "test", "testing"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://pkg.go.dev/cmd/go#hdr-Test_packages",
+  "options": [
+    {
+      "id": "run",
+      "long": "-run",
+      "label": "Run filter",
+      "description": "Only run tests matching the regular expression",
+      "type": "string"
+    },
+    {
+      "id": "count",
+      "long": "-count",
+      "label": "Count",
+      "description": "Run each test and benchmark n times",
+      "type": "number"
+    },
+    {
+      "id": "race",
+      "long": "-race",
+      "label": "Race detector",
+      "description": "Enable data race detection while testing",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "packages",
+      "label": "Packages",
+      "description": "Packages or patterns to test",
+      "type": "string",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run tests across the module",
+      "values": {
+        "packages": ["./..."]
+      }
+    },
+    {
+      "label": "Run tests matching a regex with the race detector",
+      "values": {
+        "packages": ["./..."],
+        "run": "Handler",
+        "race": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "uv-sync",
+  "name": "uv sync",
+  "executable": "uv",
+  "subcommands": ["sync"],
+  "description": "Synchronize a uv project environment with the lockfile and project metadata",
+  "category": "python",
+  "tags": ["python", "uv", "dependencies", "lockfile"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://docs.astral.sh/uv/reference/cli/",
+  "options": [
+    {
+      "id": "all-extras",
+      "long": "--all-extras",
+      "label": "All extras",
+      "description": "Install all optional dependency groups",
+      "type": "boolean"
+    },
+    {
+      "id": "frozen",
+      "long": "--frozen",
+      "label": "Frozen",
+      "description": "Fail if the lockfile needs to be updated",
+      "type": "boolean"
+    },
+    {
+      "id": "python",
+      "long": "--python",
+      "label": "Python version",
+      "description": "Use a specific Python interpreter or version",
+      "type": "string"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Sync the current project environment",
+      "values": {}
+    },
+    {
+      "label": "Sync all extras on Python 3.12",
+      "values": {
+        "all-extras": true,
+        "python": "3.12"
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "ls",
+  "name": "ls",
+  "executable": "ls",
+  "description": "List directory contents, displaying files and subdirectories with optional detail formatting",
+  "category": "filesystem",
+  "tags": ["files", "directory", "list", "listing"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://man7.org/linux/man-pages/man1/ls.1.html",
+  "options": [
+    {
+      "id": "all",
+      "short": "-a",
+      "label": "Show all",
+      "description": "Include hidden files and directories (those starting with a dot)",
+      "type": "boolean"
+    },
+    {
+      "id": "long",
+      "short": "-l",
+      "label": "Long format",
+      "description": "Display detailed information including permissions, owner, size, and modification date",
+      "type": "boolean"
+    },
+    {
+      "id": "human-readable",
+      "short": "-h",
+      "label": "Human-readable sizes",
+      "description": "Print file sizes in human-readable format (e.g., 1K, 234M, 2G)",
+      "type": "boolean",
+      "showWhen": {
+        "optionId": "long",
+        "operator": "equals",
+        "value": true
+      }
+    },
+    {
+      "id": "recursive",
+      "short": "-R",
+      "label": "Recursive",
+      "description": "List subdirectories and their contents recursively",
+      "type": "boolean"
+    },
+    {
+      "id": "sort",
+      "long": "--sort",
+      "label": "Sort by",
+      "description": "Sort output by the specified field",
+      "type": "enum",
+      "separator": "equals",
+      "choices": [
+        { "value": "name", "label": "Name", "description": "Sort alphabetically by name" },
+        { "value": "size", "label": "Size", "description": "Sort by file size, largest first" },
+        { "value": "time", "label": "Time", "description": "Sort by modification time, newest first" },
+        { "value": "extension", "label": "Extension", "description": "Sort alphabetically by file extension" },
+        { "value": "none", "label": "None", "description": "Do not sort; list entries in directory order" }
+      ]
+    },
+    {
+      "id": "reverse",
+      "short": "-r",
+      "label": "Reverse",
+      "description": "Reverse the order of the sort",
+      "type": "boolean"
+    },
+    {
+      "id": "color",
+      "long": "--color",
+      "label": "Colorize output",
+      "description": "Control whether to colorize the output",
+      "type": "enum",
+      "separator": "equals",
+      "choices": [
+        { "value": "auto", "label": "Auto", "description": "Colorize only when output is a terminal" },
+        { "value": "always", "label": "Always", "description": "Always colorize output" },
+        { "value": "never", "label": "Never", "description": "Never colorize output" }
+      ]
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "path",
+      "label": "Path",
+      "description": "Directory or file paths to list",
+      "type": "directory-path",
+      "variadic": true,
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "List all files in long format with human-readable sizes",
+      "values": {
+        "all": true,
+        "long": true,
+        "human-readable": true
+      }
+    },
+    {
+      "label": "List files sorted by time in reverse order",
+      "values": {
+        "long": true,
+        "sort": "time",
+        "reverse": true
+      }
+    },
+    {
+      "label": "List all files sorted by size (largest first)",
+      "values": {
+        "long": true,
+        "human-readable": true,
+        "sort": "size"
+      }
+    },
+    {
+      "label": "List only top-level contents with color output",
+      "values": {
+        "color": "always",
+        "long": true
+      }
+    },
+    {
+      "label": "Recursive listing with colorized output",
+      "values": {
+        "recursive": true,
+        "color": "always",
+        "long": true,
+        "human-readable": true
+      }
+    },
+    {
+      "label": "List files sorted by extension",
+      "values": {
+        "long": true,
+        "sort": "extension",
+        "all": true
+      }
+    }
+  ]
+}

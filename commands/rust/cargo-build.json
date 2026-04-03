@@ -1,0 +1,47 @@
+{
+  "id": "cargo-build",
+  "name": "cargo build",
+  "executable": "cargo",
+  "subcommands": ["build"],
+  "description": "Compile the current Rust crate or workspace with Cargo",
+  "category": "rust",
+  "tags": ["rust", "cargo", "build", "compile"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://doc.rust-lang.org/cargo/commands/cargo-build.html",
+  "options": [
+    {
+      "id": "release",
+      "long": "--release",
+      "label": "Release",
+      "description": "Build with release optimizations",
+      "type": "boolean"
+    },
+    {
+      "id": "package",
+      "short": "-p",
+      "label": "Package",
+      "description": "Build only the specified package",
+      "type": "string"
+    },
+    {
+      "id": "target",
+      "long": "--target",
+      "label": "Target triple",
+      "description": "Build for a specific compilation target",
+      "type": "string"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Build the current crate",
+      "values": {}
+    },
+    {
+      "label": "Build a workspace package in release mode",
+      "values": {
+        "package": "cli",
+        "release": true
+      }
+    }
+  ]
+}

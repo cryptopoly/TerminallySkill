@@ -1,0 +1,55 @@
+{
+  "id": "cargo-test",
+  "name": "cargo test",
+  "executable": "cargo",
+  "subcommands": ["test"],
+  "description": "Run Rust unit, integration, and documentation tests with Cargo",
+  "category": "rust",
+  "tags": ["rust", "cargo", "test", "testing"],
+  "dangerLevel": "safe",
+  "docsUrl": "https://doc.rust-lang.org/cargo/commands/cargo-test.html",
+  "options": [
+    {
+      "id": "package",
+      "short": "-p",
+      "label": "Package",
+      "description": "Test only the specified package",
+      "type": "string"
+    },
+    {
+      "id": "test-name",
+      "long": "--test",
+      "label": "Integration test",
+      "description": "Run a specific integration test target",
+      "type": "string"
+    },
+    {
+      "id": "release",
+      "long": "--release",
+      "label": "Release",
+      "description": "Run tests with release optimizations",
+      "type": "boolean"
+    }
+  ],
+  "positionalArgs": [
+    {
+      "id": "filter",
+      "label": "Filter",
+      "description": "Only run tests whose names contain the filter",
+      "type": "string",
+      "position": 0
+    }
+  ],
+  "examples": [
+    {
+      "label": "Run all tests",
+      "values": {}
+    },
+    {
+      "label": "Run tests matching a name filter",
+      "values": {
+        "filter": "config"
+      }
+    }
+  ]
+}
