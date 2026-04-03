@@ -6,12 +6,12 @@
 
 **Visual command builders, workflow automation, AI-powered review, SSH remoting, encrypted VNC desktop, and full terminal sessions — all in one app.**
 
-[![Download Latest](https://img.shields.io/github/v/release/cryptopoly/TerminallySkill?label=Download&color=14b8a6)](https://github.com/cryptopoly/TerminallySkill/releases/latest)
+[![Download Latest](https://img.shields.io/github/v/release/cryptopoly/TerminallySKILL?label=Download&color=14b8a6)](https://github.com/cryptopoly/TerminallySKILL/releases/latest)
 [![Website](https://img.shields.io/badge/Website-terminallyskill.com-14b8a6)](https://terminallyskill.com)
-[![Platform](https://img.shields.io/badge/Platforms-macOS%20%7C%20Linux%20%7C%20Windows%20(beta)-blue)](https://github.com/cryptopoly/TerminallySkill/releases/latest)
-[![Open Source](https://img.shields.io/badge/License-Open%20Source-brightgreen)](#license)
+[![Platform](https://img.shields.io/badge/Platforms-macOS%20%7C%20Linux%20%7C%20Windows%20(beta)-blue)](https://github.com/cryptopoly/TerminallySKILL/releases/latest)
+[![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)](#license)
 
-[**🚀 Download Now**](https://github.com/cryptopoly/TerminallySkill/releases/latest) · [**🌐 Website**](https://terminallyskill.com) · [**🐛 Report Issues**](https://github.com/cryptopoly/TerminallySkill/issues) · [**⭐ Star This Repo**](https://github.com/cryptopoly/TerminallySkill)
+[**🚀 Download Now**](https://github.com/cryptopoly/TerminallySKILL/releases/latest) · [**🌐 Website**](https://terminallyskill.com) · [**🐛 Report Issues**](https://github.com/cryptopoly/TerminallySKILL/issues) · [**⭐ Star This Repo**](https://github.com/cryptopoly/TerminallySKILL)
 
 </div>
 
@@ -50,7 +50,7 @@ TerminallySKILL is a **free, open-source desktop app** that replaces your scatte
 
 ### Download Pre-Built Release (Recommended)
 
-**[📥 Download the latest release](https://github.com/cryptopoly/TerminallySkill/releases/latest)**
+**[📥 Download the latest release](https://github.com/cryptopoly/TerminallySKILL/releases/latest)**
 
 | Platform | File | Notes |
 |----------|------|-------|
@@ -169,8 +169,8 @@ Eight built-in themes:
 ### Clone & Install
 
 ```bash
-git clone https://github.com/cryptopoly/TerminallySkill.git
-cd TerminallySkill
+git clone https://github.com/cryptopoly/TerminallySKILL.git
+cd TerminallySKILL
 npm install
 ```
 
@@ -290,24 +290,24 @@ scripts/          # Build and packaging helpers
 
 TerminallySKILL is free, open source, and built independently. If it saves you time or makes your workflow better, consider supporting development:
 
-- **⭐ [Star this repo](https://github.com/cryptopoly/TerminallySkill)** — helps with visibility and discovery
+- **⭐ [Star this repo](https://github.com/cryptopoly/TerminallySKILL)** — helps with visibility and discovery
 - **☕ [Buy Me a Coffee](https://buymeacoffee.com/cryptoraptor)** — quick one-time support
 - **💜 [PayPal Donate](https://www.paypal.com/donate/?hosted_button_id=5VJ5KLNBQ9LRN)** — one-time or recurring
 - **🌐 [Support via Website](https://terminallyskill.com/#support)** — more options
-- **🐛 [Report issues](https://github.com/cryptopoly/TerminallySkill/issues)** — bug reports and feature requests welcome
+- **🐛 [Report issues](https://github.com/cryptopoly/TerminallySKILL/issues)** — bug reports and feature requests welcome
 - **📢 [Share on Twitter](https://twitter.com/intent/tweet?text=TerminallySKILL%20%E2%80%94%20a%20professional%20terminal%20workspace%20with%20visual%20command%20builders%2C%20workflow%20scripts%2C%20AI%20review%2C%20SSH%20%2B%20VNC%20remoting.%20Free%20%26%20open%20source.%20%E2%9A%A1&url=https://terminallyskill.com)** — spread the word
 
 ---
 
 ## 📜 License
 
-All rights reserved. This software is proprietary.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-**[🚀 Download Now](https://github.com/cryptopoly/TerminallySkill/releases/latest)** · **[🌐 Website](https://terminallyskill.com)** · **[⭐ Star on GitHub](https://github.com/cryptopoly/TerminallySkill)**
+**[🚀 Download Now](https://github.com/cryptopoly/TerminallySKILL/releases/latest)** · **[🌐 Website](https://terminallyskill.com)** · **[⭐ Star on GitHub](https://github.com/cryptopoly/TerminallySKILL)**
 
 Made with ⚡ by [cryptopoly](https://github.com/cryptopoly)
 
