@@ -1823,7 +1823,9 @@ function XTermInstance({
     })
 
     const fitAddon = new FitAddon()
-    const webLinksAddon = new WebLinksAddon()
+    const webLinksAddon = new WebLinksAddon((_event, uri) => {
+      window.electronAPI.openExternal(uri)
+    })
     const searchAddon = new SearchAddon()
     const serializeAddon = new SerializeAddon()
 
