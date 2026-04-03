@@ -53,7 +53,7 @@ const config = {
         {
           provider: 'github',
           owner: 'cryptopoly',
-          repo: 'TerminallySkill'
+          repo: 'TerminallySKILL'
         }
       ],
   mac: {

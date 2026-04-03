@@ -397,7 +397,7 @@ async function resolveElectronUpdater(
   } else {
     // autoUpdater can be undefined when the dynamic import fails to auto-detect
     // config. Fall back to explicitly creating the updater with GitHub provider.
-    const githubOpts = { provider: 'github' as const, owner: 'cryptopoly', repo: 'TerminallySkill' }
+    const githubOpts = { provider: 'github' as const, owner: 'cryptopoly', repo: 'TerminallySKILL' }
     updater =
       process.platform === 'darwin'
         ? new MacUpdater(githubOpts)
@@ -673,9 +673,13 @@ async function downloadAndInstallViaElectronUpdater(
     }
 
     await updater.downloadUpdate()
+    const { killAllTerminals } = await import('./pty-manager')
+    const { stopAllVncSessions } = await import('./vnc-manager')
+    await killAllTerminals()
+    stopAllVncSessions()
     setTimeout(() => {
       updater.quitAndInstall(false, true)
-    }, 250)
+    }, 500)
 
     return {
       success: true,
