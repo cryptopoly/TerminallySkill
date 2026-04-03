@@ -593,12 +593,14 @@ export function killSessionsForWindow(targetWindow: BrowserWindow): void {
   }
 }
 
-export function killAllTerminals(): void {
+export async function killAllTerminals(): Promise<void> {
+  const saves: Promise<void>[] = []
   for (const [, session] of sessions) {
-    void autoSaveLog(session, null)
+    saves.push(autoSaveLog(session, null).catch(() => {}))
     session.process.kill()
     session.cleanupInit()
     unregisterTerminalSession(session.sessionId)
   }
   sessions.clear()
+  await Promise.allSettled(saves)
 }

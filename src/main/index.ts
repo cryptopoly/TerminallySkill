@@ -3,7 +3,7 @@ import { join, resolve } from 'path'
 import { readFileSync, existsSync } from 'fs'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { registerIpcHandlers } from './ipc-handlers'
-import { initTerminalPath, killSessionsForWindow, getActiveSessionCountForWindow, getSessionCountForWindow } from './pty-manager'
+import { initTerminalPath, killSessionsForWindow, killAllTerminals, getActiveSessionCountForWindow, getSessionCountForWindow } from './pty-manager'
 import { stopVncSessionsForWindow, stopAllVncSessions } from './vnc-manager'
 import { IPC_CHANNELS } from '../shared/ipc-channels'
 import { getUserDataDir, setCustomDataDir } from './user-data-path'
@@ -213,8 +213,12 @@ app.whenReady().then(() => {
   })
 })
 
-app.on('window-all-closed', () => {
+app.on('before-quit', () => {
+  killAllTerminals()
   stopAllVncSessions()
+})
+
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }

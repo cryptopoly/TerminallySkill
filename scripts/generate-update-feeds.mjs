@@ -140,12 +140,5 @@ const winArm64 = windowsArtifacts.filter((artifact) => artifact.arch === 'arm64'
 const winX64 = windowsArtifacts.filter((artifact) => artifact.arch === 'x64' || artifact.arch === '')
 
 await writeFeed('latest-mac.yml', macArtifacts, ['.zip', '.dmg'])
-await writeFeed('latest-mac-arm64.yml', macArm64, ['.zip', '.dmg'])
-await writeFeed('latest-mac-x64.yml', macX64, ['.zip', '.dmg'])
-await writeFeed('latest-linux-arm64.yml', linuxArm64, ['.deb', '.appimage'])
-await writeFeed('latest-linux-x64.yml', linuxX64, ['.deb', '.appimage'])
 await writeFeed('latest-linux.yml', linuxArtifacts, ['.deb', '.appimage'])
 await writeFeed('latest.yml', windowsArtifacts, ['.exe'])
-await writeFeed('latest-win.yml', windowsArtifacts, ['.exe'])
-await writeFeed('latest-win-arm64.yml', winArm64, ['.exe'])
-await writeFeed('latest-win-x64.yml', winX64, ['.exe'])
