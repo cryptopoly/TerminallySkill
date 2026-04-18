@@ -16,6 +16,7 @@ import { CommandPalette } from '../palette/CommandPalette'
 import { Dashboard } from '../dashboard/Dashboard'
 import { WorkflowRunnerEngine } from '../scripts/WorkflowRunnerHost'
 import { HelpTip } from '../ui/HelpTip'
+import { UpdateReleaseNotes } from '../ui/UpdateReleaseNotes'
 import { resolveProjectTerminalContext, useTerminalStore } from '../../store/terminal-store'
 import { useCommandStore } from '../../store/command-store'
 import { useProjectStore } from '../../store/project-store'
@@ -716,9 +717,12 @@ export function AppShell(): JSX.Element {
                 {startupUpdateCheck.message}
               </div>
               {startupUpdateCheck.notes && (
-                <div className="mt-1 text-xs leading-5 text-gray-500">
-                  {startupUpdateCheck.notes}
-                </div>
+                <UpdateReleaseNotes
+                  notes={startupUpdateCheck.notes}
+                  title="What's New"
+                  hint="Expand to view highlights and the full change log."
+                  className="mt-2"
+                />
               )}
               {startupUpdateMessage && (
                 <div className="mt-2 text-xs leading-5 text-gray-300">

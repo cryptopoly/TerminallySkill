@@ -25,6 +25,7 @@ import {
 import clsx from 'clsx'
 import { useCommandStore } from '../../store/command-store'
 import { useSettingsStore } from '../../store/settings-store'
+import { UpdateReleaseNotes } from '../ui/UpdateReleaseNotes'
 import type {
   AIProvider,
   AIRoutingTarget,
@@ -1286,7 +1287,11 @@ export function SettingsPanel({ hideHeader = false }: { hideHeader?: boolean }):
                   {updateCheck.notes && (
                     <div>
                       <div className="text-[11px] uppercase tracking-[0.16em] text-gray-600">Release Notes</div>
-                      <div className="mt-1 whitespace-pre-wrap text-xs leading-6 text-gray-300">{updateCheck.notes}</div>
+                      <UpdateReleaseNotes
+                        notes={updateCheck.notes}
+                        hint="Expand to view highlights and the full change log."
+                        className="mt-2"
+                      />
                     </div>
                   )}
                 </>

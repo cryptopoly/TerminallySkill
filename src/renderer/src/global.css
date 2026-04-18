@@ -243,6 +243,117 @@
   }
 }
 
+.tv-release-notes > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tv-release-notes[open] .tv-release-notes-chevron {
+  transform: rotate(180deg);
+}
+
+.tv-release-notes-content {
+  color: var(--gray-300);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.tv-release-notes-content > * + * {
+  margin-top: 0.75rem;
+}
+
+.tv-release-notes-content h1,
+.tv-release-notes-content h2,
+.tv-release-notes-content h3,
+.tv-release-notes-content h4,
+.tv-release-notes-content h5,
+.tv-release-notes-content h6 {
+  color: var(--gray-200);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.tv-release-notes-content p,
+.tv-release-notes-content ul,
+.tv-release-notes-content ol,
+.tv-release-notes-content blockquote,
+.tv-release-notes-content pre {
+  margin-top: 0.5rem;
+}
+
+.tv-release-notes-content ul,
+.tv-release-notes-content ol {
+  padding-left: 1.1rem;
+}
+
+.tv-release-notes-content ul {
+  list-style: disc;
+}
+
+.tv-release-notes-content ol {
+  list-style: decimal;
+}
+
+.tv-release-notes-content li + li {
+  margin-top: 0.3rem;
+}
+
+.tv-release-notes-content a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.tv-release-notes-content code {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 0.375rem;
+  background: rgba(148, 163, 184, 0.1);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.92em;
+}
+
+.tv-release-notes-content pre {
+  overflow-x: auto;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 0.75rem;
+  background: rgba(15, 23, 42, 0.3);
+  padding: 0.75rem;
+}
+
+.tv-release-notes-content pre code {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.tv-release-notes-content blockquote {
+  border-left: 2px solid rgba(148, 163, 184, 0.28);
+  padding-left: 0.75rem;
+  color: var(--gray-400);
+}
+
+.tv-release-notes-content details {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 0.75rem;
+  background: rgba(15, 23, 42, 0.16);
+}
+
+.tv-release-notes-content details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.65rem 0.75rem;
+  color: var(--gray-200);
+  font-weight: 600;
+}
+
+.tv-release-notes-content details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tv-release-notes-content details > :not(summary) {
+  padding: 0 0.75rem 0.75rem;
+}
+
 /* ── Utility: hide scrollbar but keep scrollability ── */
 .scrollbar-none {
   scrollbar-width: none; /* Firefox */
